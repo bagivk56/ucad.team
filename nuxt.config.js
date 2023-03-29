@@ -1,6 +1,8 @@
 export default {
-  target: 'static',
-
+  server: {
+    port: 55794,
+    host: '0.0.0.0'
+  },
   head: {
     title: 'UCAD.TEAM',
     htmlAttrs: {
