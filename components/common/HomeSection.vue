@@ -9,7 +9,7 @@
      <div class="additional">
        <span class="white" data-text="UCAD">UCAD</span>
        <span class="dot" data-text=".">.</span>
-       <span class="blue" data-text=" TEAM">TEAM</span>
+       <span class="blue" data-text=" TEAM">TEAM_</span>
      </div>
    </div>
    <div class="home-section__background"/>
