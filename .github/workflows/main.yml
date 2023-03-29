@@ -1,0 +1,4 @@
+- name: GitHub Script
+  uses: actions/github-script@v4.2.0
+  with:
+    script: ssh ${{ secrets.USER }}@${{ secrets.ADDRESS }} "sh home/c73250/ucad.team.na4u.ru/app/deploy.sh"
