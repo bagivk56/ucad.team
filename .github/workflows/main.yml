@@ -1,6 +1,5 @@
 name: GitHub Script
 on: [push]
-uses: actions/github-script@v4.2.0
 jobs:
   deploy:
     steps:
