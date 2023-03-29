@@ -4,5 +4,7 @@ uses: actions/github-script@v4.2.0
 jobs:
   deploy:
     steps:
+      name: Deploying to Digitalocean droplet
+      uses: bagivk56/ucad.team@main
       with:
         script: ssh ${{ secrets.USER }}@${{ secrets.ADDRESS }} "sh home/c73250/ucad.team.na4u.ru/app/deploy.sh"
