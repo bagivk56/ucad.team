@@ -1,7 +1,11 @@
 name: GitHub Script
-on: [push]
+on:
+  push:
+    branches: [ main ]
 jobs:
   deploy:
     steps:
-    - uses: bagivk56/ucad.team@main
-      run: ssh ${{ secrets.USER }}@${{ secrets.ADDRESS }} "sh home/c73250/ucad.team.na4u.ru/app/deploy.sh"
+      - name: Build
+        uses: bagivk56/ucad.team@main
+        with:
+          script: ssh ${{ secrets.USER }}@${{ secrets.ADDRESS }} "sh home/c73250/ucad.team.na4u.ru/app/deploy.sh"
