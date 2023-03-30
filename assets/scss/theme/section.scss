@@ -1,0 +1,19 @@
+.custom-section {
+  position: relative;
+  z-index: 1;
+}
+.custom-section.metal {
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -5;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("~/assets/jpg/common/background.jpg");
+    opacity: 0.1;
+    mix-blend-mode: multiply;
+  }
+}
+
+.custom-section__title {
+  margin-bottom: 30px;
+}

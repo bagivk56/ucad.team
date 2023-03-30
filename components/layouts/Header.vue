@@ -1,6 +1,6 @@
 <template>
  <header class="header">
-   <nuxt-link to="to" class="header__logo">
+   <nuxt-link to="/about" class="header__logo">
      <img src="~/assets/svg/logo-small.svg"/>
      <span data-text="ABOUT">ABOUT</span>
    </nuxt-link>
