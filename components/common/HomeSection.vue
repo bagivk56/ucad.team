@@ -18,26 +18,7 @@
 
 <script>
 export default {
-  name: "HomeSection",
-
-  mounted() {
-    function getRandomInt(max) {
-      return Math.floor(Math.random() * max);
-    }
-
-    let list1 = [];
-    let list2 = [];
-    for (let i = 0; i < 56; i++) {
-      const percent = 100 / 56 * i;
-
-      const number = getRandomInt(80);
-      list1.push(`${100 / 56 * i}% { clip-path: polygon(0 ${number}%, 0 ${number + 20}%, 100% ${number + 20}%, 100% ${number}%); }`)
-      list2.push(`${100 / 56 * i}% { clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 ${number}%, 100% ${number}%, 100% ${number + 20}%, 0 ${number + 20}%, 0 100%, 100% 100%, 100% 0%);}`)
-    }
-
-    console.log('item 1: ', `@keyframes animation-text-freeze-1 {${list1.join("")}} @keyframes animation-text-freeze-2 {${list2.join("")}}`);
-    // console.log('list: ', list.join(""));
-  }
+  name: "HomeSection"
 }
 </script>
 

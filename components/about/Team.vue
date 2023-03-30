@@ -1,7 +1,9 @@
 <template>
  <div class="team-section custom-section metal">
    <div class="container">
-     <h2 class="custom-section__title">Команда</h2>
+     <h2 class="custom-section__title">
+       {{$t('Команда.Команда')}}
+     </h2>
      <div class="team-section__cards">
        <TeamCard/>
        <TeamCard/>

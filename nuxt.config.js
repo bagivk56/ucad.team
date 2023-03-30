@@ -1,3 +1,19 @@
+export const locales = [
+  {
+    code: 'en',
+    name: 'En',
+    file: 'en-EN.json',
+    iso: 'en-US',
+  },
+  {
+    code: 'ru',
+    name: 'Ру',
+    file: 'ru-RU.json',
+    iso: 'ru-RU',
+  }
+];
+
+
 export default {
   server: {
     port: 55794,
@@ -43,7 +59,8 @@ export default {
   },
 
   i18n: {
-    locales: ['en', 'ru'],
-    defaultLocale: 'ru'
+    defaultLocale: 'ru',
+    langDir: '~/locales/',
+    locales,
   }
 }

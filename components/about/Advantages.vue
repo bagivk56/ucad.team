@@ -1,7 +1,9 @@
 <template>
  <div class="advantages-section custom-section metal">
    <div class="container">
-     <h2 class="custom-section__title">Преимущества</h2>
+     <h2 class="custom-section__title">
+       {{$t('Преимущества.Преимущества')}}
+     </h2>
      <div class="advantages__list">
        <AdvantageCard/>
        <AdvantageCard/>

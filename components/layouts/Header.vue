@@ -13,7 +13,7 @@ export default {
 
   computed: {
     logoPath: function () {
-      return Boolean(this.$route.path === '/about') ? '/' : '/about'
+      return this.localePath(Boolean(this.getRouteBaseName() === 'about') ? '/' : '/about')
     }
   }
 }
