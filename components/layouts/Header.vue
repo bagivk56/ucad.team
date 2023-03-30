@@ -1,6 +1,6 @@
 <template>
  <header class="header">
-   <nuxt-link to="/about" class="header__logo">
+   <nuxt-link :to="logoPath" class="header__logo">
      <img src="~/assets/svg/logo-small.svg"/>
      <span data-text="ABOUT">ABOUT</span>
    </nuxt-link>
@@ -9,7 +9,13 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+
+  computed: {
+    logoPath: function () {
+      return Boolean(this.$route.path === '/about') ? '/' : '/about'
+    }
+  }
 }
 </script>
 
@@ -20,7 +26,7 @@ export default {
   justify-content: center;
   position: fixed;
   z-index: 998;
-  top: 60px; left: 0; right: 0;
+  top: 30px; left: 0; right: 0;
 }
 .header__logo {
   position: relative;
