@@ -4,12 +4,12 @@
      <div class="main">
        <span class="white">UCAD</span>
        <span class="dot">.</span>
-       <span class="blue">TEAM__</span>
+       <span class="blue">TEAM</span>
      </div>
      <div class="additional">
        <span class="white" data-text="UCAD">UCAD</span>
        <span class="dot" data-text=".">.</span>
-       <span class="blue" data-text=" TEAM">TEAM__</span>
+       <span class="blue" data-text=" TEAM">TEAM</span>
      </div>
    </div>
    <div class="home-section__background"/>
