@@ -42,6 +42,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/send-telegram-message.js"
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -52,15 +53,23 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/i18n',
+    '@nuxtjs/axios'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
 
+  // Мультязычность
   i18n: {
     defaultLocale: 'ru',
     langDir: '~/locales/',
     locales,
+  },
+
+  // Переменные окружения
+  env: {
+    telegramBotId: process.env.TELEGRAM_BOT_ID,
+    telegramChatId: process.env.TELEGRAM_CHAT_ID,
   }
 }

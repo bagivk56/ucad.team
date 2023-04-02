@@ -3,12 +3,14 @@
    <AboutProject/>
    <Team/>
    <Advantages/>
+   <FormFeedback/>
  </div>
 </template>
 
 <script>
 import AboutProject from "~/components/about/AboutProject";
 import Team from "~/components/about/Team";
+import FormFeedback from "~/components/about/FormFeedback";
 
 export default {
   name: "index",
@@ -17,7 +19,8 @@ export default {
     AboutProject,
     Team,
 
-    Advantages: () => import("~/components/about/Advantages")
+    Advantages: () => import("~/components/about/Advantages"),
+    FormFeedback
   }
 }
 </script>
