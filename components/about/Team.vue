@@ -27,10 +27,10 @@ export default {
       teams: [
         {
           image: require("~/assets/jpg/team/alexander-ux-ui-designer.png"),
-          name: "Александр",
+          name: this.$t('Команда.АлександрДизайнер.Имя'),
           age: "32",
-          job: "UX/UI designer",
-          message: "Рисует так круто и быстро, что создается статическая энергия, которая преобразуется в эстетический оргазм пользователей. Опыт в графическом дизайне более 7 лет, в UX UI дизайн - 5 лет. Работал дизайнером в финтех проектах, онлайн-курсах, крипто-проектах.",
+          job: this.$t('Команда.АлександрДизайнер.Должность'),
+          message: this.$t('Команда.АлександрДизайнер.Описание'),
           tags: [],
           gradientColor: "#5900EA",
           gradientX1: "7.05555",
@@ -40,10 +40,10 @@ export default {
         },
         {
           image: require("~/assets/jpg/team/alexander-ux-ui-designer.png"),
-          name: "Евгений",
+          name: this.$t('Команда.ЕвгенийМенеджер.Имя'),
           age: "30",
-          job: "PM \\ Product Owner",
-          message: "Ехать в другой город на переговоры с заказчиком, успокоить Backend’а который обжегся горячим кофе, раскидать таски, провести meetup с team’ой и все это еще до обеда. Всем привет! Меня зовут Евгений и Вам достался лучший PM! Опыт управления коммерческими проектами 8 лет, в IT проектах 1.5 года.",
+          job: this.$t('Команда.ЕвгенийМенеджер.Должность'),
+          message: this.$t('Команда.ЕвгенийМенеджер.Описание'),
           tags: [
             "SCRUM\\KANBAN",
             "Jira\\Trello\\Pyrus\\1C\\MacroCRM\\ProfitBase",
@@ -58,12 +58,17 @@ export default {
         },
         {
           image: require("~/assets/jpg/team/alexander-ux-ui-designer.png"),
-          name: "Антон",
+          name: this.$t('Команда.АнтонФронтенд.Имя'),
           age: "25",
-          job: "Frontend Developer",
-          message: "Все что происходит на Front’е остается на Front’e! Опыт работы 5.5 лет во Frontend разработке",
+          job: this.$t('Команда.АнтонФронтенд.Должность'),
+          message: this.$t('Команда.АнтонФронтенд.Описание'),
           tags: [
             "JavaScript",
+            "React",
+            "React Native",
+            "VueJS (nuxt)",
+            "Figma",
+            "Jira\\Trello\\Pyrus\\1C\\MacroCRM\\ProfitBase"
           ],
           gradientColor: "#D0792F",
           gradientX1: "272",

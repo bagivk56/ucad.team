@@ -12,7 +12,7 @@
       </div>
       <div class="pop-up__content">
         <div class="pop-up__name">{{teamInfo.name}}</div>
-        <div class="pop-up__age">{{teamInfo.age}} лет</div>
+        <div class="pop-up__age">{{teamInfo.age}} {{$t('Команда.Лет')}}</div>
         <div class="pop-up__role">{{teamInfo.job}}</div>
         <div v-html="teamInfo.message" class="pop-up__message cms-block-stub"/>
         <div v-if="Boolean(teamInfo.tags && teamInfo.tags.length)" class="cms-block-stub pop-up__tags">
@@ -109,6 +109,7 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
+  text-transform: lowercase;
 }
 .pop-up__message {
   margin-top: 20px;

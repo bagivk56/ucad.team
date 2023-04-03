@@ -11,7 +11,7 @@
         {{team.name}}
       </div>
       <div class="team-card__age">
-        {{team.age}} лет
+        {{team.age}} {{$t('Команда.Лет')}}
       </div>
       <div class="team-card__role">
         <span>{{team.job}}</span>
@@ -105,6 +105,7 @@ export default {
 }
 .team-card__age {
   color: #A80CEE;
+  text-transform: lowercase;
 }
 .team-card__role {
   display: flex;
