@@ -2,6 +2,8 @@
   <div class="layouts">
     <Header/>
     <nuxt/>
+
+    <PopUpTeam/>
   </div>
 </template>
 
@@ -10,7 +12,9 @@ import Header from "~/components/layouts/Header";
 
 export default {
   components: {
-    Header
+    Header,
+
+    PopUpTeam: () => import("~/components/team/PopUp")
   }
 }
 </script>

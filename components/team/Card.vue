@@ -1,5 +1,8 @@
 <template>
-  <div class="team-card">
+  <div
+    class="team-card"
+    @click="openPopUp"
+  >
     <div class="team-card__image">
       <img :src="team.image"/>
     </div>
@@ -38,6 +41,12 @@ export default {
       default: () => {
         return {}
       }
+    }
+  },
+
+  methods: {
+    openPopUp: function () {
+      this.$store.commit("teams/openPopUp", this.team)
     }
   }
 }
