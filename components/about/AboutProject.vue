@@ -8,6 +8,12 @@
        <div class="cms-block-stub">
          {{$t('О проекте.Сообщение')}}
        </div>
+
+       <div class="about-project__text">
+         <span>UCAD</span>
+         <span class="dot">.</span>
+         <span class="blue"> T</span>
+       </div>
      </div>
    </div>
 
@@ -39,6 +45,7 @@ export default {
 }
 .about-project__content {
   max-width: 670px;
+  position: relative;
 
   .cms-block-stub {
     font-weight: 500;
@@ -52,6 +59,25 @@ export default {
     max-width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+.about-project__text {
+  position: absolute;
+  left: calc(100% + 90px); bottom: 0;
+
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 121px;
+  text-align: center;
+  color: #FFFFFF;
+  white-space: nowrap;
+
+  .dot {
+    color: rgba(66, 9, 176, 1);
+  }
+  .blue {
+    color: rgba(8, 122, 255, 1);
   }
 }
 </style>

@@ -19,7 +19,7 @@ export default {
   name: "Advantages",
 
   components: {
-    AdvantageCard: () => import("~/components/about/_AdvantageCard")
+    AdvantageCard: () => import("@/components/advantages/Card")
   }
 }
 </script>
