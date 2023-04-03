@@ -63,6 +63,9 @@ export default {
   box-sizing: border-box;
   position: relative;
   background: rgba(0, 0, 0, 0.8);
+  transition: all 0.4s;
+
+  animation: pop-up-team-animation 1.5s;
 }
 .pop-up__image {
   width: 100vw;
@@ -124,6 +127,18 @@ export default {
   transition: all 0.2s;
   &:hover {
     transform: scale(1.2);
+  }
+}
+
+@keyframes pop-up-team-animation {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
