@@ -55,7 +55,7 @@ export default {
       window.addEventListener('wheel', (event) => {
         c.strokeStyle = colors[this.getRandomArbitrary(0, 3)];
         if (event.deltaY > 0) speed *= 1.4;
-        else speed *= 0.8;
+        else speed *= 0.95;
         if (speed < 0.01) speed = 0.01; else if (speed > 0.1) speed = 0.1;
       });
       class Star {
