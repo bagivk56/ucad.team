@@ -18,7 +18,11 @@ import GeminiScrollbar from "gemini-scrollbar";
 export default {
   name: "index",
 
-  data: function () {},
+  data: function () {
+    return {
+      myScrollbar: null
+    }
+  },
 
   components: {
     AboutProject,
@@ -34,6 +38,11 @@ export default {
     var myScrollbar = new GeminiScrollbar({
       element: document.querySelector('body')
     }).create();
+    this.myScrollbar = myScrollbar;
+    console.log('myScrollbar: ', myScrollbar);
+  },
+  destroyed: function () {
+    this.myScrollbar.destroy();
   }
 }
 </script>
