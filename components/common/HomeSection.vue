@@ -132,7 +132,7 @@ export default {
     top: 0; left: 0;
     right: 0; bottom: 0;
     z-index: -1;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(18, 3, 46, 1) 47.19%, rgba(0,0,0,0) 100%);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(18, 3, 46, 0.82) 47.19%, rgba(0,0,0,0) 100%);
   }
 }
 .home-section__logo {
