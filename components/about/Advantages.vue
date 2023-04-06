@@ -5,10 +5,10 @@
        {{$t('Преимущества.Преимущества')}}
      </h2>
      <div class="advantages__list">
-       <AdvantageCard/>
-       <AdvantageCard/>
-       <AdvantageCard/>
-       <AdvantageCard/>
+       <AdvantageCard
+         v-for="(item) in list"
+         :item="item"
+       />
      </div>
    </div>
  </div>
@@ -17,6 +17,29 @@
 <script>
 export default {
   name: "Advantages",
+
+  data: function () {
+    return {
+      list: [
+        {
+          title: this.$t("Преимущества.Список.Умеем слышать Вас.Заголовок"),
+          message: this.$t("Преимущества.Список.Умеем слышать Вас.Сообщение"),
+        },
+        {
+          title: this.$t("Преимущества.Список.Гарантии сроков.Заголовок"),
+          message: this.$t("Преимущества.Список.Гарантии сроков.Сообщение"),
+        },
+        {
+          title: this.$t("Преимущества.Список.Гибкая разработка.Заголовок"),
+          message: this.$t("Преимущества.Список.Гибкая разработка.Сообщение"),
+        },
+        {
+          title: this.$t("Преимущества.Список.Собственный дизайн.Заголовок"),
+          message: this.$t("Преимущества.Список.Собственный дизайн.Сообщение"),
+        },
+      ]
+    }
+  },
 
   components: {
     AdvantageCard: () => import("@/components/advantages/Card")

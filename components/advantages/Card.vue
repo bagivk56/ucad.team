@@ -4,19 +4,24 @@
      <div class="advantage-card__icon">
        <span/>
      </div>
-     <div class="title">
-       Умеем<br/>слышать Вас
-     </div>
+     <div v-html="item.title" class="title"/>
    </div>
-   <div class="advantage-card__message cms-block-stub">
-     В каждой сфере бизнеса есть проблемы, которые необходимо преодолеть, умение совмещать пожелания заказчика и улучшать показатели метрик – самый главный критерий выполненной работы.
-   </div>
+   <div v-html="item.message" class="advantage-card__message cms-block-stub"/>
  </div>
 </template>
 
 <script>
 export default {
-  name: "AdvantageCard"
+  name: "AdvantageCard",
+
+  props: {
+    item: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    }
+  }
 }
 </script>
 
