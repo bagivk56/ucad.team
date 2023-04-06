@@ -1,6 +1,6 @@
 <template>
  <section class="home-section">
-   <div class="home-section__logo">
+   <div id="home-section-logo" class="home-section__logo">
      <div class="main">
        <span class="white">UCAD</span>
        <span class="dot">.</span>
@@ -52,12 +52,17 @@ export default {
       const c = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
       window.addEventListener('wheel', (event) => {
         c.strokeStyle = colors[this.getRandomArbitrary(0, 3)];
         if (event.deltaY > 0) speed *= 1.4;
         else speed *= 0.92;
         if (speed < 0.01) speed = 0.01; else if (speed > 0.1) speed = 0.1;
       });
+      document.getElementById('home-section-logo').onclick = () => {
+        speed = (speed === 0.001) ? 0.1 : 0.001;
+      }
+
       class Star {
         constructor() {
           this.x = Math.random()*canvas.width-canvas.width/2;
@@ -143,6 +148,8 @@ export default {
   line-height: 175px;
   text-align: center;
   color: #FFFFFF;
+  cursor: pointer;
+  user-select: none;
 
   & > * {
     display: flex;
