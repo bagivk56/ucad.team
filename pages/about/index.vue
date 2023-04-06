@@ -1,5 +1,5 @@
 <template>
- <div class="relative">
+ <div id="section-scrooll" class="relative">
    <AboutProject/>
    <Team/>
    <Advantages/>
@@ -13,6 +13,7 @@
 import AboutProject from "~/components/about/AboutProject";
 import Team from "~/components/about/Team";
 import FormFeedback from "~/components/about/FormFeedback";
+import GeminiScrollbar from "gemini-scrollbar";
 
 export default {
   name: "index",
@@ -28,6 +29,12 @@ export default {
 
     LeftSideBarScroll: () => import("~/components/common/LeftSideBarScroll")
   },
+
+  mounted() {
+    var myScrollbar = new GeminiScrollbar({
+      element: document.querySelector('body')
+    }).create();
+  }
 }
 </script>
 

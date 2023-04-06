@@ -3962,6 +3962,11 @@ functions-have-names@^1.2.2:
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
+gemini-scrollbar@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/gemini-scrollbar/-/gemini-scrollbar-1.5.3.tgz#7abc916e103e11f983f15856ef8c583cedef95cf"
+  integrity sha512-3Q4SrxkJ+ei+I5PlcRZCfPePv3EduP7xusOWp7Uw0+XywEWred7Nq9hoaP2IQh1vRjoidaVODV3rO3icFH/e5A==
+
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
