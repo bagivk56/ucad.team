@@ -66,6 +66,7 @@ export default {
 
 <style lang="scss" scoped>
 .form-feedback {
+  height: 100vh;
   padding-top: 200px;
   padding-bottom: 60px;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #081422 62.84%, #000000 99.49%);
