@@ -27,6 +27,9 @@ export default {
   position: fixed;
   z-index: 998;
   top: 30px; left: 0; right: 0;
+  position: sticky;
+  margin-top: -40px;
+  height: 40px;
 }
 .header__logo {
   position: relative;
