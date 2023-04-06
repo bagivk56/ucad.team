@@ -31,7 +31,6 @@ export default {
 
 <style lang="scss" scoped>
 .about-project {
-  height: 100vh;
   padding-top: 240px;
   padding-bottom: 100px;
   box-sizing: border-box;

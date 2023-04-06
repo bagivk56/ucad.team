@@ -42,12 +42,12 @@ export default {
   },
 
   mounted: function () {
-    this.calculateSectionOffsets();
-
-    window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
-    window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
-    window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
-    window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+    // this.calculateSectionOffsets();
+    //
+    // window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
+    // window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+    // window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
+    // window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
   },
   destroyed: function () {
     window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
@@ -88,22 +88,26 @@ export default {
 
       return false;
     },
+
+    moveUp() {
+      this.inMove = true;
+      this.activeSection++;
+      if(this.activeSection > this.offsets.length - 1) this.activeSection = 0;
+      this.scrollToSection(this.activeSection, true);
+    },
     moveDown() {
       this.inMove = true;
       this.activeSection--;
 
-      if(this.activeSection < 0) this.activeSection = this.offsets.length - 1;
+      if(this.activeSection < 0) {
+        return
+      };
+      this.activeSection = this.offsets.length - 1
 
+      console.log('this.activeSection: ', this.activeSection);
       this.scrollToSection(this.activeSection, true);
     },
-    moveUp() {
-      this.inMove = true;
-      this.activeSection++;
 
-      if(this.activeSection > this.offsets.length - 1) this.activeSection = 0;
-
-      this.scrollToSection(this.activeSection, true);
-    },
     scrollToSection(id, force = false) {
       if(this.inMove && !force) return false;
 
@@ -119,7 +123,6 @@ export default {
       setTimeout(() => {
         this.inMove = false;
       }, this.inMoveDelay);
-
     },
     touchStart(e) {
       e.preventDefault();
