@@ -122,7 +122,6 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
-  text-transform: lowercase;
 }
 .pop-up__message {
   margin-top: 20px;
