@@ -4,27 +4,53 @@
     "Сообщение": "UCAD.T \"Ural creative association of developers\" is a young and proactive team of developers from the Urals (it's somewhere in Russia). We live in the same city and have been working together for over three years. During this time, we have learned to understand each other without words, interact in an agile environment and find non-obvious solutions, which allows us to give an accurate assessment of the project and meet the timings. We also have a rest together, sharing each other's hobbies, including a gym and bowling. We love teamwork, we love the development process, and we love seeing the results of our efforts (UCAD is good️). It is in this direction that we grow and develop!"
   },
   "Команда": {
-    "Команда": "Team"
+    "Команда": "Team",
+    "Лет": "Age",
+    "АлександрДизайнер": {
+      "Имя": "Александр",
+      "Должность": "UX UI designer",
+      "Описание": "Рисует так круто и быстро, что создается статическая энергия, которая преобразуется в эстетический оргазм пользователей. Опыт в графическом дизайне более 7 лет, в UX UI дизайн - 5 лет. Работал дизайнером в финтех проектах, онлайн-курсах, крипто-проектах."
+    },
+    "ЕвгенийМенеджер": {
+      "Имя": "Евгений",
+      "Должность": "PM \\ Product Owner",
+      "Описание": "Ехать в другой город на переговоры с заказчиком, успокоить Backend’а который обжегся горячим кофе, раскидать таски, провести meetup с team’ой и все это еще до обеда. Всем привет! Меня зовут Евгений и Вам достался лучший PM! Опыт управления коммерческими проектами 8 лет, в IT проектах 1.5 года."
+    },
+    "АнтонФронтенд": {
+      "Имя": "Антон",
+      "Должность": "Frontend Developer",
+      "Описание": "Все что происходит на Front’е остается на Front’e! Опыт работы 5.5 лет во Frontend разработке"
+    }
   },
   "Преимущества": {
     "Преимущества": "Advantages",
     "Список": {
       "Умеем слышать Вас": {
-        "Заголовок": "Умеем<br/>слышать Вас",
-        "Сообщение": "В каждой сфере бизнеса есть проблемы, которые необходимо преодолеть, умение совмещать пожелания заказчика и улучшать показатели метрик – самый главный критерий выполненной работы."
+        "Заголовок": "We can<br/>hear you",
+        "Сообщение": "In any area of business there are challenges that need to be overcome, the ability to combine the wishes of the customer and increase productivity is the most important criterion for our work done."
       },
       "Гарантии сроков": {
-        "Заголовок": "Гарантии<br/>сроков",
-        "Сообщение": "UCAD.T – слаженная и сработавшаяся команда, мы знаем возможности друг друга, что позволяет нам ставить реальные цели и сроки четко попадая в них."
+        "Заголовок": "Guaranteed<br/>terms",
+        "Сообщение": "UCAD.T is a well-coordinated team, we know each other's capabilities, which allows us to set realistic goals and deadlines with a clear hit."
       },
       "Гибкая разработка": {
-        "Заголовок": "Гибкая<br/>разработка",
-        "Сообщение": "Современный бизнес очень переменчив, то что было актуально вчера не котируется уже сегодня! Работая по Kanban и SCRUM мы умеем быстро перестраиваться под новые реалии."
+        "Заголовок": "Agile<br/>Development",
+        "Сообщение": "Modern business is very changeable, what was relevant yesterday is no longer quoted today! Working on Kanban and SCRUM, we are able to quickly adapt to new realities."
       },
       "Собственный дизайн": {
         "Заголовок": "Собственный дизайн",
         "Сообщение": "У большинства компаний собственный брендбук, однако если Вам необходимо разработать новый дизайн, проанализировав рынок, мы предложим Вам совершенно новое решение."
       }
     }
+  },
+  "Форма обратной связи": {
+    "Обратная связь": "Feedback",
+    "Название компании": "Company name",
+    "Расскажите о своем проекте": "Tell us about your project",
+    "Отправить": "Send"
+  },
+  "Валидация форм": {
+    "Обязательно к заполнению": "Required to fill out",
+    "Неправильный формат ввода": "Invalid input format"
   }
 }

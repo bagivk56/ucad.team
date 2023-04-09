@@ -2,7 +2,9 @@
  <section class="form-feedback">
    <div class="container">
      <div class="form-feedback__content">
-       <h2 class="custom-section__title">Обратная связь</h2>
+       <h2 class="custom-section__title">
+         {{$t('Форма обратной связи.Обратная связь')}}
+       </h2>
        <div class="form-feedback__form">
          <div class="left">
            <div class="form-item">
@@ -45,7 +47,7 @@
        </div>
        <div class="form-feedback__action">
          <button class="btn btn-primary" @click="sendMessage">
-           Отправить
+           {{$t('Форма обратной связи.Отправить')}}
            <img src="~/assets/svg/common/arrow-right.svg"/>
          </button>
        </div>
@@ -133,10 +135,15 @@ export default {
 
   methods: {
     sendMessage: async function () {
-      this.$v.$touch()
-      if (this.$v.$invalid) {
-        return
-      }
+      // this.$v.$touch()
+      // if (this.$v.$invalid) {
+      //   return
+      // }
+
+      const resposner = this.$axios.post('http://192.168.0.103:3000/send-telegram', {
+        text: 'asdasd'
+      })
+      console.log('resposner: ', resposner);
 
       // await this.$sendTelegramMessage({
       //   message: "Hello"

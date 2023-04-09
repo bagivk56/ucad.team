@@ -1,13 +1,13 @@
 export const locales = [
   {
     code: 'en',
-    name: 'En',
+    name: 'EN',
     file: 'en-EN.json',
     iso: 'en-US',
   },
   {
     code: 'ru',
-    name: 'Ру',
+    name: 'RU',
     file: 'ru-RU.json',
     iso: 'ru-RU',
   }

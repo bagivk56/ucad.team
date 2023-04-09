@@ -12,7 +12,14 @@ export default {
 
   computed: {
     currentLanguage: function () {
-      return this.$i18n?.localeProperties?.name
+      const localeCodes = this.$i18n?.localeCodes || [];
+
+      let currentIndex = localeCodes.findIndex((t) => t === this.$i18n?.localeProperties?.code) + 1;
+      if (currentIndex > (localeCodes.length - 1)) {
+        currentIndex = 0;
+      }
+
+      return (this.$i18n?.locales || []).find((t) => t.code === localeCodes[currentIndex])?.name
     }
   },
 
