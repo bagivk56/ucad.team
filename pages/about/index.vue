@@ -13,6 +13,7 @@
 import AboutProject from "~/components/about/AboutProject";
 import Team from "~/components/about/Team";
 import FormFeedback from "~/components/about/FormFeedback";
+import Advantages from "~/components/about/Advantages";
 import GeminiScrollbar from "gemini-scrollbar";
 
 export default {
@@ -26,10 +27,9 @@ export default {
 
   components: {
     Team,
+    Advantages,
     AboutProject,
     FormFeedback,
-
-    Advantages: () => import("~/components/about/Advantages")
   },
 
   mounted: function () {
