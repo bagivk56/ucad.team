@@ -2,7 +2,8 @@
  <header class="header">
    <nuxt-link :to="logoPath" class="header__logo">
      <img src="~/assets/svg/logo-small.svg"/>
-     <span data-text="AB¯¯UT">AB¯¯UT</span>
+     <span data-text="AB">AB</span>
+     <span data-text="UT">UT</span>
    </nuxt-link>
  </header>
 </template>
@@ -38,14 +39,21 @@ export default {
     display: none;
     position: absolute;
     z-index: -1;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    transform: translate(0, -50%);
 
     font-family: 'Unbounded';
     font-weight: 600;
     font-size: 30px;
     line-height: 37px;
     color: #FFFFFF;
+
+    &:nth-child(2) {
+      left: -52px;
+    }
+    &:last-child {
+      right: -52px;
+    }
   }
   &:hover {
     span {
