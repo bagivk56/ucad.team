@@ -2,7 +2,7 @@
  <header class="header">
    <nuxt-link :to="logoPath" class="header__logo">
      <img src="~/assets/svg/logo-small.svg"/>
-     <span data-text="ABOUT">ABOUT</span>
+     <span data-text="AB¯¯UT">AB¯¯UT</span>
    </nuxt-link>
  </header>
 </template>
