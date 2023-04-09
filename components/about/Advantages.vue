@@ -54,6 +54,8 @@ export default {
 
   methods: {
     changeMousePosition: function (event) {
+      return
+
       const to = {
         x: event.pageX,
         y: event.pageY

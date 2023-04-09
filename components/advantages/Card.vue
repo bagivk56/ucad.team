@@ -21,6 +21,25 @@ export default {
         return {}
       }
     }
+  },
+
+  mounted: function () {
+    window.addEventListener("mousemove", this.changeMousePosition, true);
+  },
+  destroyed: function () {
+    window.removeEventListener("mousemove", this.changeMousePosition, true);
+  },
+
+  methods: {
+    changeMousePosition: function (event) {
+      const eyes = this.$refs.refIcon;
+      const rect = eyes.getBoundingClientRect();
+      const eyeX = (rect.left + rect.right) / 2;
+      const eyeY = (rect.top + rect.bottom) / 2;
+
+      let radianDegrees = - Math.atan2(eyeX - event.pageX, eyeY - event.pageY);
+      eyes.style.transform = `rotate(${radianDegrees}rad)`;
+    }
   }
 }
 </script>
@@ -48,7 +67,8 @@ export default {
 
   span {
     position: absolute;
-    top: 0; left: 0;
+    top: 0; left: 50%;
+    transform: translate(-50%, 0);
 
     display: flex;
     width: 14px;
