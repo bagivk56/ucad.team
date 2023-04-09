@@ -42,7 +42,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    "~/plugins/send-telegram-message.js"
+    "~/plugins/vuelidate.js",
+    "~/plugins/send-telegram-message.js",
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

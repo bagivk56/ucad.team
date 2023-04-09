@@ -7,38 +7,46 @@
          <div class="left">
            <div class="form-item">
              <input
+               v-model="form.companyName"
                type="text"
                class="form-item-input"
-               placeholder="Название компании"
+               :placeholder="$t('Форма обратной связи.Название компании')"
              />
+             <div v-if="errorCompanyName" class="form-item-error">{{errorCompanyName}}</div>
            </div>
            <div class="form-item">
              <input
+               v-model="form.email"
                type="text"
                class="form-item-input"
                placeholder="E-mail"
              />
+             <div v-if="errorEmail" class="form-item-error">{{errorEmail}}</div>
            </div>
            <div class="form-item">
              <input
+               v-model="form.username"
                type="text"
                class="form-item-input"
                placeholder="Telegram username"
              />
+             <div v-if="errorUsername" class="form-item-error">{{errorUsername}}</div>
            </div>
          </div>
          <div class="right">
            <div class="form-item">
              <textarea
-               placeholder="Расскажите о своем проекте"
+               v-model="form.message"
+               :placeholder="$t('Форма обратной связи.Расскажите о своем проекте')"
                class="form-item-input --textarea"
              />
            </div>
          </div>
        </div>
        <div class="form-feedback__action">
-         <button class="btn btn-primary">
+         <button class="btn btn-primary" @click="sendMessage">
            Отправить
+           <img src="~/assets/svg/common/arrow-right.svg"/>
          </button>
        </div>
      </div>
@@ -47,15 +55,89 @@
 </template>
 
 <script>
+import { required, email } from "vuelidate/lib/validators";
+
 export default {
   name: "FormFeedback",
 
-  mounted: async function () {
-    await this.sendMessage();
+  data: function () {
+    return {
+      form: {
+        companyName: "",
+        email: "",
+        username: "",
+        message: ""
+      }
+    }
+  },
+
+  computed: {
+    errorCompanyName: function () {
+      const error = this.$v?.form?.companyName;
+      if (!error?.$invalid || !error?.$dirty) {
+        return null;
+      }
+
+      if (!error.required) {
+        return this.$t('Валидация форм.Обязательно к заполнению');
+      }
+
+      return null;
+
+    },
+    errorEmail: function () {
+      const error = this.$v?.form?.email;
+      if (!error?.$invalid || !error?.$dirty) {
+        return null;
+      }
+
+      if (!error.required) {
+        return this.$t('Валидация форм.Обязательно к заполнению');
+      }
+      if (!error.email) {
+        return this.$t('Валидация форм.Неправильный формат ввода');
+      }
+
+      return null;
+
+    },
+    errorUsername: function () {
+      const error = this.$v?.form?.username;
+      if (!error?.$invalid || !error?.$dirty) {
+        return null;
+      }
+
+      if (!error.required) {
+        return this.$t('Валидация форм.Обязательно к заполнению');
+      }
+
+      return null;
+
+    },
+  },
+
+  validations: {
+    form: {
+      companyName: {
+        required
+      },
+      email: {
+        required,
+        email
+      },
+      username: {
+        required
+      },
+    }
   },
 
   methods: {
     sendMessage: async function () {
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        return
+      }
+
       // await this.$sendTelegramMessage({
       //   message: "Hello"
       // })
@@ -104,5 +186,15 @@ export default {
   display: flex;
   justify-content: flex-end;
   margin-top: 30px;
+
+  .btn {
+    display: flex;
+    align-items: center;
+
+    img {
+      filter: invert(1);
+      margin-left: 30px;
+    }
+  }
 }
 </style>

@@ -22,4 +22,14 @@
     color: #CDCDCD;
   }
 }
-.form-item-error {}
+.form-item-input.--textarea {
+
+}
+.form-item-error {
+  margin-top: 8px;
+  margin-left: 12px;
+
+  font-size: 12px;
+  line-height: 120%;
+  color: #A80CEE;
+}
