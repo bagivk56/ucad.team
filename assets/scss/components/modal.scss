@@ -1,6 +1,7 @@
 .modal {
-  position: fixed;
+  position: sticky;
   top: 0; left: 0; right: 0; bottom: 0;
+  height: 100vh;
   z-index: 999;
 
   &.center {
@@ -15,7 +16,7 @@
 }
 .modal__close {}
 .modal__overlay {
-  position: fixed;
+  position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #1D1209 62.84%, #000000 99.49%);

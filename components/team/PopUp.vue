@@ -43,6 +43,16 @@ export default {
     }
   },
 
+  watch: {
+    isOpen: function () {
+      if (this.isOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style = "";
+      }
+    }
+  },
+
   methods: {
     closePopUp: function () {
       this.$store.commit("teams/closePopUp")

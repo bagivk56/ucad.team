@@ -1,12 +1,12 @@
 <template>
- <div id="section-scrooll" class="relative">
-   <AboutProject/>
-   <Team/>
-   <Advantages/>
-   <FormFeedback/>
-
-   <LeftSideBarScroll/>
- </div>
+  <div class="page-about">
+    <div class="page-about__scroll">
+      <AboutProject/>
+      <Team/>
+      <Advantages/>
+      <FormFeedback/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -25,21 +25,23 @@ export default {
   },
 
   components: {
-    AboutProject,
     Team,
-
-    Advantages: () => import("~/components/about/Advantages"),
+    AboutProject,
     FormFeedback,
 
-    LeftSideBarScroll: () => import("~/components/common/LeftSideBarScroll")
+    Advantages: () => import("~/components/about/Advantages")
   },
 
-  mounted() {
-    var myScrollbar = new GeminiScrollbar({
-      element: document.querySelector('body')
-    }).create();
-    this.myScrollbar = myScrollbar;
-    console.log('myScrollbar: ', myScrollbar);
+  mounted: function () {
+    setTimeout(() => {
+      var myScrollbar = new GeminiScrollbar({
+        element: document.querySelector('.page-about__scroll'),
+        autoshow: false,
+        forceGemini: false,
+      });
+      this.myScrollbar = myScrollbar;
+      myScrollbar.create();
+    }, 100);
   },
   destroyed: function () {
     this.myScrollbar.destroy();
@@ -48,7 +50,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fullpage {
+.page-about {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.page-about__scroll {
 
 }
 </style>

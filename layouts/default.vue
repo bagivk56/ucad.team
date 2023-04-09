@@ -1,8 +1,10 @@
 <template >
   <div class="layouts">
     <Header/>
-    <nuxt/>
-
+    <div class="layouts__body">
+      <nuxt/>
+      <LanguageSelector/>
+    </div>
     <PopUpTeam/>
   </div>
 </template>
@@ -14,7 +16,8 @@ export default {
   components: {
     Header,
 
-    PopUpTeam: () => import("~/components/team/PopUp")
+    PopUpTeam: () => import("~/components/team/PopUp"),
+    LanguageSelector: () => import("~/components/common/LanguageSelector")
   }
 }
 </script>

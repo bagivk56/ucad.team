@@ -1,7 +1,7 @@
 html {
-  height: 100%;
-  height: 100vh;
-  overflow: hidden;
+  //height: 100%;
+  //height: 100vh;
+  //overflow: hidden;
 }
 
 .container {
@@ -21,7 +21,7 @@ html {
   right: initial;
   left: 35px;
   top: 60px;
-  bottom: 60px;
+  bottom: 104px;
 }
 .gm-scrollbar.-horizontal {
   display: none;
@@ -39,7 +39,7 @@ html {
   cursor: pointer;
   transition: all 0.2s;
 }
-.gm-scrollbar .thumb:hover {
+.gm-scrollbar .thumb:hover, .thumb:active, .thumb:focus {
   width: 16px!important;
   left: -8px;
   background: linear-gradient(180deg, #003471 0%, #5644F7 48.75%, #A80CEE 100%);
