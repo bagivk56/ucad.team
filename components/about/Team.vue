@@ -89,11 +89,11 @@ export default {
             "Spring boot",
             "Docker",
           ],
-          gradientColor: "#D0792F",
-          gradientX1: "272",
-          gradientX2: "239.262",
-          gradientY1: "318.392",
-          gradientY2: "146.14",
+          gradientColor: "#5900EA",
+          gradientX1: "7.05555",
+          gradientX2: "235",
+          gradientY1: "417",
+          gradientY2: "241.79",
         },
         {
           image: require("~/assets/jpg/team/8.jpg"),
@@ -109,11 +109,11 @@ export default {
             "Redis/RabbitMQ/CELERY",
             "Docker",
           ],
-          gradientColor: "#D0792F",
-          gradientX1: "272",
-          gradientX2: "239.262",
-          gradientY1: "318.392",
-          gradientY2: "146.14",
+          gradientColor: "#9A55A7",
+          gradientX1: "252.5",
+          gradientX2: "128.504",
+          gradientY1: "265.833",
+          gradientY2: "66.8941",
         },
       ]
     }
@@ -144,6 +144,9 @@ export default {
     margin-left: 30px;
     &:nth-child(2n) {
       margin-top: 75px;
+    }
+    &:nth-child(3n + 5) {
+      margin-top: -15px;
     }
   }
 }
