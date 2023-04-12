@@ -5,6 +5,7 @@
       <Team/>
       <Advantages/>
       <FormFeedback/>
+      <Footer/>
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@ import AboutProject from "~/components/about/AboutProject";
 import Team from "~/components/about/Team";
 import FormFeedback from "~/components/about/FormFeedback";
 import Advantages from "~/components/about/Advantages";
+import Footer from "~/components/layouts/Footer.vue";
 import GeminiScrollbar from "gemini-scrollbar";
 
 export default {
@@ -30,6 +32,7 @@ export default {
     Advantages,
     AboutProject,
     FormFeedback,
+    Footer
   },
 
   mounted: function () {
