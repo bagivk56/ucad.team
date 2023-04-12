@@ -64,7 +64,7 @@ export default {
 <style lang="scss" scoped>
 .pop-up {
   display: flex;
-  width: 100%;
+  width: 100vw;
   max-width: 1170px;
   margin: 0 auto;
   border-radius: 25px;
