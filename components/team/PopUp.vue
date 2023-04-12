@@ -114,6 +114,7 @@ export default {
   font-size: 18px;
   line-height: 22px;
   color: #087AFF;
+  text-transform: lowercase;
 }
 .pop-up__role {
   margin-top: 10px;

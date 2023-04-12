@@ -31,7 +31,13 @@ export default {
           age: "32",
           job: this.$t('Команда.АлександрДизайнер.Должность'),
           message: this.$t('Команда.АлександрДизайнер.Описание'),
-          tags: [],
+          tags: [
+            'Figma',
+            'Adobe XD',
+            'Adobe Photoshop',
+            'Adobe Illustrator',
+            'Jira\\Trello\\Pyrus'
+          ],
           gradientColor: "#5900EA",
           gradientX1: "7.05555",
           gradientX2: "235",
@@ -47,7 +53,7 @@ export default {
           tags: [
             "SCRUM\\KANBAN",
             "Jira\\Trello\\Pyrus\\1C\\MacroCRM\\ProfitBase",
-            "Диаграмма ганта",
+            "Git\\Figma",
             "Очень сильные «софт» скилы",
           ],
           gradientColor: "#9A55A7",
