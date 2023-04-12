@@ -74,13 +74,5 @@ export default {
   env: {
     telegramBotId: process.env.TELEGRAM_BOT_ID,
     telegramChatId: process.env.TELEGRAM_CHAT_ID,
-  },
-
-  render: {
-    bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ['font'].includes(type)
-      }
-    }
   }
 }
