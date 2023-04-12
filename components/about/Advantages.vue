@@ -1,120 +1,205 @@
 <template>
  <div class="advantages-section custom-section metal">
    <div class="container">
-     <h2 class="custom-section__title">
-       {{$t('Преимущества.Преимущества')}}
-     </h2>
-     <div class="advantages__list">
-       <AdvantageCard
-         v-for="(item) in list"
-         :item="item"
-       />
+     <div class="advantages-section__content">
+       <div class="left">
+         <Card
+           v-for="(item, index) in list_1"
+           :key="`card-1-${index}`"
+           :item="item"
+           left
+         />
+       </div>
+       <div class="center">
+         <div class="advantages-section__icons">
+           <div>
+             <img src="~/assets/svg/advantages/logo-center.svg"/>
+           </div>
+           <div>
+             <img src="~/assets/svg/advantages/logo-center.svg"/>
+           </div>
+           <div>
+             <img src="~/assets/svg/advantages/logo-center.svg"/>
+           </div>
+           <div>
+             <img src="~/assets/svg/advantages/logo-center.svg"/>
+           </div>
+         </div>
+         <img src="~/assets/svg/advantages/center-icon.svg" class="advantages-section__icon-center"/>
+         <img src="~/assets/svg/advantages/logo-center.svg" class="advantages-section__logo-center"/>
+       </div>
+       <div class="right">
+         <Card
+           v-for="(item, index) in list_2"
+           :key="`card-2-${index}`"
+           :item="item"
+           right
+         />
+       </div>
      </div>
    </div>
  </div>
 </template>
 
 <script>
+import Card from "~/components/advantages/Card.vue";
+
 export default {
   name: "Advantages",
 
   data: function () {
     return {
-      list: [
+      list_1: [
         {
           title: this.$t("Преимущества.Список.Умеем слышать Вас.Заголовок"),
           message: this.$t("Преимущества.Список.Умеем слышать Вас.Сообщение"),
         },
         {
-          title: this.$t("Преимущества.Список.Гарантии сроков.Заголовок"),
-          message: this.$t("Преимущества.Список.Гарантии сроков.Сообщение"),
-        },
-        {
           title: this.$t("Преимущества.Список.Гибкая разработка.Заголовок"),
           message: this.$t("Преимущества.Список.Гибкая разработка.Сообщение"),
+        },
+      ],
+      list_2: [
+        {
+          title: this.$t("Преимущества.Список.Гарантии сроков.Заголовок"),
+          message: this.$t("Преимущества.Список.Гарантии сроков.Сообщение"),
         },
         {
           title: this.$t("Преимущества.Список.Собственный дизайн.Заголовок"),
           message: this.$t("Преимущества.Список.Собственный дизайн.Сообщение"),
         },
-      ]
+      ],
     }
   },
 
   components: {
-    AdvantageCard: () => import("@/components/advantages/Card")
-  },
-
-  mounted: function () {
-    window.addEventListener("mousemove", this.changeMousePosition, true);
-  },
-  destroyed: function () {
-    window.removeEventListener("mousemove", this.changeMousePosition, true);
-  },
-
-  methods: {
-    changeMousePosition: function (event) {
-      return
-
-      const to = {
-        x: event.pageX,
-        y: event.pageY
-      };
-
-      const eyes = document.querySelectorAll('.advantage-card__icon span');
-      for (const eye in Array.from(eyes)) {
-        eyes[eye].parentNode.style.display = 'block';
-        lookTo(eyes[eye], to);
-      }
-
-      function lookTo(eye, to){
-        const offset = eye.offsetWidth;
-        const white = eye.parentNode;
-        white.style.transform = 'rotate(0deg)';
-        const whiteRadius = white.offsetWidth/2;
-        const whiteTop = white.offsetTop;
-        const whiteLeft = white.offsetLeft;
-        const mouseX = to.x;
-        const mouseY = to.y;
-        const x0New = mouseX - whiteRadius - whiteLeft;
-        const y0New = mouseY - whiteRadius - whiteTop;
-        const mouseR = Math.sqrt(x0New*x0New + y0New*y0New) + offset/2;
-        if (mouseR <= whiteRadius){
-          eye.style.top = (mouseY - offset/2 - whiteTop) + 'px';
-          eye.style.left = (mouseX - offset/2 - whiteLeft) + 'px';
-        } else {
-          const rotationAngle = (x,y) => {
-            if (x>=0) {
-              return Math.atan(y/x)*180/Math.PI;
-            }
-            return Math.atan(y/x)*180/Math.PI - 180;
-          };
-          eye.style.top = (whiteRadius - offset/2) + 'px';
-          eye.style.left = (whiteRadius*2 - offset) + 'px';
-          white.style.transform = 'rotate('+ rotationAngle(x0New,y0New) + 'deg)';
-        };
-      };
-    }
+    Card
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .advantages-section {
-  padding: 180px 0;
+  padding: 210px 0 60px;
   box-sizing: border-box;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #160313 62.84%, #000000 99.49%);
 }
-.advantages__list {
+.advantages-section__content {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: -50px;
-  margin-left: -30px;
+  align-items: flex-start;
+
+  .left, .right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    & > * {
+      margin-top: 90px;
+       &:first-child {
+         margin-top: 0;
+       }
+    }
+  }
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    position: relative;
+    overflow: hidden;
+    margin: auto 25px;
+
+    &:after {
+      content: "";
+      float: left;
+      padding-top: 100%;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      border: 5px solid #46407B;
+    }
+  }
+}
+.advantages-section__icons {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
 
   & > * {
-    width: calc(100% / 4 - 30px);
-    margin-top: 50px;
-    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    z-index: 1;
+    padding: 15px;
+    box-sizing: border-box;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      background-image: url("~/assets/svg/advantages/icon-border.svg");
+      background-size: contain;
+      z-index: -2;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      background: radial-gradient(50% 50% at 50% 50.01%, #000000 85.73%, #4209B0 100%);
+      border-radius: 100%;
+      z-index: -1;
+    }
+    &:nth-child(1) {
+      top: 32px;
+      left: 9px;
+    }
+    &:nth-child(2) {
+      top: 32px;
+      right: 9px;
+    }
+    &:nth-child(3) {
+      bottom: 37px;
+      left: 9px;
+    }
+    &:nth-child(4) {
+      bottom: 37px;
+      right: 9px;
+    }
   }
+}
+.advantages-section__icon-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  width: 210px;
+  height: 210px;
+}
+.advantages-section__logo-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(calc(-50% + 2px), calc(-50% + 4px));
 }
 </style>

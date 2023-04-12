@@ -33,15 +33,15 @@ export default {
   },
 
   mounted: function () {
-    setTimeout(() => {
-      var myScrollbar = new GeminiScrollbar({
-        element: document.querySelector('.page-about__scroll'),
-        autoshow: false,
-        forceGemini: false,
-      });
-      this.myScrollbar = myScrollbar;
-      myScrollbar.create();
-    }, 100);
+    // setTimeout(() => {
+    //   var myScrollbar = new GeminiScrollbar({
+    //     element: document.querySelector('.page-about__scroll'),
+    //     autoshow: false,
+    //     forceGemini: false,
+    //   });
+    //   this.myScrollbar = myScrollbar;
+    //   myScrollbar.create();
+    // }, 100);
   },
   destroyed: function () {
     this.myScrollbar.destroy();
@@ -51,9 +51,9 @@ export default {
 
 <style lang="scss" scoped>
 .page-about {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  //width: 100%;
+  //height: 100vh;
+  //overflow: hidden;
 }
 .page-about__scroll {
 
