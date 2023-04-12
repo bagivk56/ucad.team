@@ -2,7 +2,8 @@
  <div
    class="advantage-card"
    :class="{
-    '--left': left
+    '--left': left,
+    '--right': right,
    }"
  >
    <div v-html="item.title" class="advantage-card__title"/>
@@ -43,6 +44,15 @@ export default {
     align-items: flex-end;
     .advantage-card__title, .advantage-card__message {
       text-align: right;
+    }
+  }
+  &.--right {
+    .advantage-card__title {
+      background: linear-gradient(90.12deg, #A80CEE 1.53%, #087AFF 99.92%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
   }
 }
