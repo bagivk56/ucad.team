@@ -102,7 +102,7 @@ export default {
           gradientY2: "241.79",
         },
         {
-          image: require("~/assets/jpg/team/8.jpg"),
+          image: require("~/assets/jpg/team/image 6.jpg"),
           name: this.$t('Команда.ДимаБэкенд.Имя'),
           age: "24",
           job: this.$t('Команда.ДимаБэкенд.Должность'),
