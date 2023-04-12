@@ -127,8 +127,7 @@ export default {
 
 <style lang="scss" scoped>
 .team-section {
-  padding-top: 120px;
-  padding-bottom: 60px;
+  padding: 80px 0;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #1D1209 62.84%, #000000 99.49%);
 }
 .team-section__cards {
