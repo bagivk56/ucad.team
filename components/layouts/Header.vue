@@ -1,7 +1,7 @@
 <template>
  <header class="header">
    <nuxt-link :to="logoPath" class="header__logo">
-     <img src="~/assets/svg/logo-small.svg"/>
+     <img src="~/assets/svg/logo-small.svg" alt="UCAD.TEAM"/>
      <span data-text="AB">AB</span>
      <span data-text="UT">UT</span>
    </nuxt-link>

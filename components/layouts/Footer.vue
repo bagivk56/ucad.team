@@ -2,10 +2,10 @@
  <footer class="footer">
    <div class="container">
      <div class="footer__logo">
-       <img src="~/assets/svg/logo-full.svg"/>
+       <img src="~/assets/svg/logo-full.svg" width="291" height="58"/>
      </div>
      <div class="footer__qr">
-       <img src="~/assets/svg/qr-code.svg"/>
+       <img src="~/assets/svg/qr-code.svg"  width="102" height="102"/>
      </div>
    </div>
  </footer>

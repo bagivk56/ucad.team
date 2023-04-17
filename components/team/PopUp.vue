@@ -8,6 +8,7 @@
       <div class="pop-up__image">
         <img
           :src="teamInfo.image"
+          :alt="teamInfo.name"
         />
       </div>
       <div class="pop-up__content">

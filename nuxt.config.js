@@ -31,14 +31,13 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-
-      { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/Steppe-Regular.woff2', crossorigin: true }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/scss/theme/fonts.scss',
     '~/assets/scss/main.scss',
   ],
 

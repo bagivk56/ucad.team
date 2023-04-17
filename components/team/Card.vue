@@ -4,7 +4,7 @@
     @click="openPopUp"
   >
     <div class="team-card__image">
-      <img :src="team.image"/>
+      <img :src="team.image" :alt="team.name"/>
     </div>
     <div class="team-card__body">
       <div class="team-card__name">
@@ -20,20 +20,45 @@
     </div>
 
     <svg class="team-card__border" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="100%" height="100%" rx="25" :stroke="`url(#paint0_linear_${team.gradientColor})`" stroke-width="1.5"/>
+      <rect x="0" y="0" width="100%" height="100%" rx="25" :stroke="`url(#paint0_linear_${indexCard})`" stroke-width="1.5"/>
       <defs>
-        <linearGradient :id="`paint0_linear_${team.gradientColor}`" :x1="team.gradientX1" :y1="team.gradientY1" :x2="team.gradientX2" :y2="team.gradientY2" gradientUnits="userSpaceOnUse">
-          <stop :stop-color="team.gradientColor"/>
-          <stop offset="1" stop-opacity="0"/>
+        <linearGradient :id="`paint0_linear_${indexCard}`" :x1="team.gradientX1" :y1="team.gradientY1" :x2="team.gradientX2" :y2="team.gradientY2" gradientUnits="userSpaceOnUse">
+          <stop :stop-color="colorGradient1"/>
+          <stop offset="0.424146" :stop-color="colorGradient2"/>
+          <stop offset="0.791461" :stop-color="colorGradient3"/>
+          <stop offset="1" :stop-color="colorGradient4"/>
         </linearGradient>
       </defs>
     </svg>
+
+
   </div>
 </template>
 
 <script>
+const colors = [
+  "#4209B0",
+  "#FFFFFF",
+  "#FF90ED",
+  "#087AFF",
+  "#b900f6",
+  "#2259C9",
+];
+
 export default {
   name: "TeamCard",
+
+  data: function () {
+    const min = 0;
+    const max = 5;
+
+    return {
+      colorGradient1: colors[Math.floor(Math.random() * (max - min + 1) + min)],
+      colorGradient2: colors[Math.floor(Math.random() * (max - min + 1) + min)],
+      colorGradient3: colors[Math.floor(Math.random() * (max - min + 1) + min)],
+      colorGradient4: colors[Math.floor(Math.random() * (max - min + 1) + min)],
+    }
+  },
 
   props: {
     team: {
@@ -41,6 +66,10 @@ export default {
       default: () => {
         return {}
       }
+    },
+    indexCard: {
+      type: String,
+      default: ""
     }
   },
 
@@ -86,7 +115,7 @@ export default {
 }
 .team-card__border {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: -1px; left: -1px;
   right: -1px; bottom: -1px;
   user-select: none;

@@ -18,7 +18,7 @@
    </div>
 
    <div class="about-project__image">
-     <img src="~/assets/jpg/about-project/image.jpeg"/>
+     <img src="~/assets/jpg/about-project/image.jpg" alt="UCAD"/>
    </div>
  </div>
 </template>
@@ -40,7 +40,7 @@ export default {
     position: absolute;
     z-index: -1;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90.55deg, #161616 51.84%, rgba(22, 22, 22, 0.84787) 64.39%, rgba(22, 22, 22, 0) 86.99%);
+    background: linear-gradient(89.71deg, #141617 56.31%, #12242B 71.98%, rgba(21, 34, 39, 0.75429) 82.72%, rgba(22, 22, 22, 0) 99.76%);
   }
 }
 .about-project__content {
@@ -55,7 +55,7 @@ export default {
   position: absolute;
   top: 0; right: 0; bottom: 0;
   z-index: -2;
-  width: 50%;
+  width: 40%;
   img {
     width: 100%;
     max-width: 100%;

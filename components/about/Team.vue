@@ -8,6 +8,7 @@
        <template v-for="(team, index) in teams">
          <TeamCard
            :key="`team-card-${index}`"
+           :index-card="`card-${index}`"
            :team="team"
          />
        </template>
@@ -38,11 +39,10 @@ export default {
             'Adobe Illustrator',
             'Jira\\Trello\\Pyrus'
           ],
-          gradientColor: "#5900EA",
-          gradientX1: "7.05555",
-          gradientX2: "235",
+          gradientX1: "294.778",
+          gradientX2: "84.049",
           gradientY1: "417",
-          gradientY2: "241.79",
+          gradientY2: "-36.1549",
         },
         {
           image: require("~/assets/jpg/team/image 3.jpg"),
@@ -56,11 +56,10 @@ export default {
             "Git\\Figma",
             "Очень сильные «софт» скилы",
           ],
-          gradientColor: "#9A55A7",
-          gradientX1: "252.5",
-          gradientX2: "128.504",
-          gradientY1: "265.833",
-          gradientY2: "66.8941",
+          gradientX1: "2",
+          gradientX2: "268.348",
+          gradientY1: "2",
+          gradientY2: "450.969",
         },
         {
           image: require("~/assets/jpg/team/5.jpg"),
@@ -76,11 +75,10 @@ export default {
             "Figma",
             "Jira\\Trello\\Pyrus\\1C\\MacroCRM\\ProfitBase"
           ],
-          gradientColor: "#D0792F",
-          gradientX1: "272",
-          gradientX2: "239.262",
-          gradientY1: "318.392",
-          gradientY2: "146.14",
+          gradientX1: "9.46295",
+          gradientX2: "216.08",
+          gradientY1: "417",
+          gradientY2: "-31.9065",
         },
         {
           image: require("~/assets/jpg/team/8.jpg"),
@@ -95,11 +93,10 @@ export default {
             "Spring boot",
             "Docker",
           ],
-          gradientColor: "#5900EA",
-          gradientX1: "7.05555",
-          gradientX2: "235",
+          gradientX1: "9.46295",
+          gradientX2: "216.08",
           gradientY1: "417",
-          gradientY2: "241.79",
+          gradientY2: "-31.9065",
         },
         {
           image: require("~/assets/jpg/team/image 6.jpg"),
@@ -115,11 +112,10 @@ export default {
             "Redis/RabbitMQ/CELERY",
             "Docker",
           ],
-          gradientColor: "#9A55A7",
-          gradientX1: "252.5",
-          gradientX2: "128.504",
-          gradientY1: "265.833",
-          gradientY2: "66.8941",
+          gradientX1: "294.778",
+          gradientX2: "84.049",
+          gradientY1: "417",
+          gradientY2: "-36.1549",
         },
       ]
     }
@@ -144,15 +140,9 @@ export default {
   align-items: flex-start;
 
   & > * {
-    width: calc(100% / 4 - 30px);
+    width: calc(100% / 3 - 30px);
     margin-top: 30px;
     margin-left: 30px;
-    &:nth-child(2n) {
-      margin-top: 75px;
-    }
-    &:nth-child(3n + 5) {
-      margin-top: -15px;
-    }
   }
 }
 </style>
