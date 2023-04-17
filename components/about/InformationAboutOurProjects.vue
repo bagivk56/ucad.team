@@ -9,7 +9,7 @@
          <div class="information-projects__works light-scroll-bar">
            <div
              v-for="(information, index) in informations"
-             :key="`information-${informations}`"
+             :key="`information-${index}`"
              class="information-projects__work"
              :class="{'active': Boolean(information.index === activeInfo)}"
              @click="() => changeActive(information.index)"
@@ -22,12 +22,9 @@
          <img class="information-projects__center-svg" src="~/assets/svg/information-about-our-projects/center-image.svg"/>
        </div>
        <div class="right">
-         <div class="information-projects__message light-scroll-bar">
-           <div
-             v-html="activeMessage"
-             class="cms-block-stub"
-           />
-         </div>
+         <MessageContent
+           :message="activeMessage"
+         />
        </div>
      </div>
    </div>
@@ -35,6 +32,8 @@
 </template>
 
 <script>
+import MessageContent from "~/components/information-about-our-projects/MessageContent.vue";
+
 export default {
   name: "InformationAboutOurProjects",
 
@@ -49,12 +48,12 @@ export default {
         {
           index: "1",
           title: "Крипто-кошельки",
-          message: "",
+          message: "UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе и работаем вместе более трех лет. За это время мы научились понимать друг друга без слов, взаимодействовать в условиях agile и находить неочевидные решения, что позволяет дать точную оценку проекту и соответствовать UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе и работаем вместе более трех лет. За это время мы научились понимать друг друга без слов, взаимодействовать в условиях agile и находить неочевидные решения, что позволяет дать точную оценку проекту и соответствовать UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе и работаем вместе более трех лет. За это время мы научились понимать друг друга без слов, взаимодействовать в условиях agile и находить неочевидные решения, что позволяет дать точную оценку проекту и соответствовать ",
         },
         {
           index: "2",
           title: "Онлайн-магазины",
-          message: "",
+          message: "UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе",
         },
         {
           index: "3",
@@ -86,6 +85,10 @@ export default {
     activeMessage: function () {
       return (this.informations || []).find((t) => t.index === this.activeInfo)?.message
     }
+  },
+
+  components: {
+    MessageContent
   },
 
   methods: {
@@ -171,14 +174,6 @@ export default {
   &:hover {
     color: white;
   }
-}
-
-.information-projects__message {
-  overflow: auto;
-  max-height: 350px;
-  padding: 20px;
-  padding-left: 0;
-  box-sizing: border-box;
 }
 
 .information-projects__center-svg {
