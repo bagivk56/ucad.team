@@ -50,7 +50,7 @@ export default {
     // }, 100);
   },
   destroyed: function () {
-    this.myScrollbar.destroy();
+    // this.myScrollbar.destroy();
   }
 }
 </script>

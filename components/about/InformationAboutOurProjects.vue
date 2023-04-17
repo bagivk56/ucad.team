@@ -2,23 +2,33 @@
  <div class="information-about-our-projects">
    <div class="container">
      <div class="cms-block-stub information-about-our-projects__message">
-       В виду того, что в любой крупной организации подписывается соглашение о неразглашении, мы не можем показать Вам список наших реализованных проектов, однако мы можем описать сферы, в которых мы компетентны:
+       Подписанное соглашение о неразглашении запрещает нам показывать Вам наши реализованные проекты, однако кое что рассказать мы можем:
      </div>
      <div class="information-about-our-projects__content">
        <div class="left">
-         <div class="information-projects__works">
-           <div>Строительные компании</div>
-           <div>Крипто-кошельки</div>
-           <div>Маркетплейсы</div>
-           <div>Онлайн-магазины</div>
-           <div>Онлайн-магазины</div>
-           <div>Гос. заказы</div>
+         <div class="information-projects__works light-scroll-bar">
+           <div
+             v-for="(information, index) in informations"
+             :key="`information-${informations}`"
+             class="information-projects__work"
+             :class="{'active': Boolean(information.index === activeInfo)}"
+             @click="() => changeActive(information.index)"
+           >
+             {{information.title}}
+           </div>
          </div>
        </div>
        <div class="center">
          <img class="information-projects__center-svg" src="~/assets/svg/information-about-our-projects/center-image.svg"/>
        </div>
-       <div class="right"></div>
+       <div class="right">
+         <div class="information-projects__message light-scroll-bar">
+           <div
+             v-html="activeMessage"
+             class="cms-block-stub"
+           />
+         </div>
+       </div>
      </div>
    </div>
  </div>
@@ -26,7 +36,63 @@
 
 <script>
 export default {
-  name: "InformationAboutOurProjects"
+  name: "InformationAboutOurProjects",
+
+  data: function () {
+    return {
+      informations: [
+        {
+          index: "0",
+          title: "Строительные компании",
+          message: "UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе и работаем вместе более трех лет. За это время мы научились понимать друг друга без слов, взаимодействовать в условиях agile и находить неочевидные решения, что позволяет дать точную оценку проекту и соответствовать UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе и работаем вместе более трех лет. За это время мы научились понимать друг друга без слов, взаимодействовать в условиях agile и находить неочевидные решения, что позволяет дать точную оценку проекту и соответствовать UCAD.T «Ural creative association of developers» - молодая и проактивная команда разработчиков с Урала (это где-то в России). Мы живем в одном городе и работаем вместе более трех лет. За это время мы научились понимать друг друга без слов, взаимодействовать в условиях agile и находить неочевидные решения, что позволяет дать точную оценку проекту и соответствовать ",
+        },
+        {
+          index: "1",
+          title: "Крипто-кошельки",
+          message: "",
+        },
+        {
+          index: "2",
+          title: "Онлайн-магазины",
+          message: "",
+        },
+        {
+          index: "3",
+          title: "Маркетплейсы",
+          message: "",
+        },
+        {
+          index: "4",
+          title: "Государственные заказы",
+          message: "",
+        },
+        {
+          index: "5",
+          title: "CRM систем для HoReCa",
+          message: "",
+        },
+        {
+          index: "6",
+          title: "ПО для высокоточного оборудования",
+          message: "",
+        }
+      ],
+
+      activeInfo: "0"
+    }
+  },
+
+  computed: {
+    activeMessage: function () {
+      return (this.informations || []).find((t) => t.index === this.activeInfo)?.message
+    }
+  },
+
+  methods: {
+    changeActive: function (activeInfo) {
+      this.activeInfo = activeInfo;
+    }
+  }
 }
 </script>
 
@@ -56,38 +122,65 @@ export default {
 .information-projects__works {
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  max-height: 350px;
+  padding: 20px;
+  padding-left: 0;
+  box-sizing: border-box;
 
   & > * {
     margin-top: 20px;
-    padding: 15px 20px;
-    box-sizing: border-box;
-    border-radius: 0px 25px 25px 0px;
-    position: relative;
-    z-index: 1;
-
-    font-size: 16px;
-    line-height: 19px;
-    text-align: right;
-    color: #969696;
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: -1px; left: -1px; right: -1px; bottom: -1px;
-      z-index: -2;
-      background: linear-gradient(259.54deg, #48464B 39.91%, rgba(0, 0, 0, 0) 57.89%);
-      border-radius: 0 25px 25px 0;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: -1;
-      border-radius: 0 25px 25px 0;
-      background: linear-gradient(90.66deg, #16161600 0.57%, #160C1B 25.09%, #160313 62.84%, #000000 99.49%);
-    }
   }
 }
+.information-projects__work {
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border-radius: 0px 25px 25px 0px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  color: #969696;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    z-index: -2;
+    background: linear-gradient(259.54deg, #48464B 39.91%, rgba(0, 0, 0, 0) 57.89%);
+    border-radius: 0 25px 25px 0;
+    transition: all 1s;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    border-radius: 0 25px 25px 0;
+    background: linear-gradient(90.66deg, #16161600 0.57%, #160C1B 25.09%, #160313 62.84%, #000000 99.49%);
+  }
+  &.active {
+    color: white;
+    &:after {
+      background: linear-gradient(259.54deg, #5900EA 39.91%, rgba(0, 0, 0, 0) 57.89%);
+    }
+  }
+  &:hover {
+    color: white;
+  }
+}
+
+.information-projects__message {
+  overflow: auto;
+  max-height: 350px;
+  padding: 20px;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
 .information-projects__center-svg {
   -webkit-animation: rotating 7s linear infinite;
   -moz-animation: rotating 7s linear infinite;
