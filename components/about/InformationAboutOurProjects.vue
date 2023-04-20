@@ -6,7 +6,12 @@
      </div>
      <div class="information-about-our-projects__content">
        <div class="left">
-         <div class="information-projects__works light-scroll-bar">
+         <ProjectContent
+           :list="informations"
+           :active="activeInfo"
+           @changeActive="changeActive"
+         />
+         <div v-if="false" class="information-projects__works light-scroll-bar">
            <div
              v-for="(information, index) in informations"
              :key="`information-${index}`"
@@ -33,6 +38,7 @@
 
 <script>
 import MessageContent from "~/components/information-about-our-projects/MessageContent.vue";
+import ProjectContent from "~/components/information-about-our-projects/ProjectContent.vue";
 
 export default {
   name: "InformationAboutOurProjects",
@@ -88,6 +94,7 @@ export default {
   },
 
   components: {
+    ProjectContent,
     MessageContent
   },
 

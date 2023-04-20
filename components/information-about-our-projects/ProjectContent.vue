@@ -1,12 +1,18 @@
 <template>
- <div class="iaop-message-content">
-   <div
-     ref="refMessageContent"
-     v-html="message"
-     class="cms-block-stub hidden-scroll-bar"
-   />
+ <div class="iaop-project-content">
+   <div ref="refMessageContent" class="iaop-project-content__list hidden-scroll-bar">
+     <div
+       v-for="(item, index) in list"
+       :key="`iaop-project-card-${index}`"
+       class="iaop-project-card"
+       :class="{'active': item.index === active}"
+       @click="() => changeActive(item.index)"
+     >
+       {{ item.title }}
+     </div>
+   </div>
 
-   <div ref="refScroll" class="iaop-message-content__scroll">
+   <div ref="refScroll" class="iaop-project-content__scroll">
      <svg width="54" viewBox="0 0 54 427" fill="none" xmlns="http://www.w3.org/2000/svg">
        <path d="M26.4656 28.7976C26.5796 28.0032 27.6498 27.8551 27.9582 28.5961C36.0314 47.9935 42.6657 75.6338 47.1668 108.691C51.87 143.232 54.0573 182.314 53.4824 221.537C52.9075 260.76 49.5932 298.565 43.9128 330.693C38.5369 361.1 31.244 385.279 22.7805 400.829C22.3314 401.654 21.1179 401.393 21.018 400.458C29.9615 385.302 37.6643 360.505 43.259 328.861C48.8537 297.217 52.1179 259.983 52.6842 221.352C53.2504 182.721 51.0961 144.228 46.4639 110.208C41.8317 76.1878 34.9056 47.9926 26.4656 28.7976Z" fill="url(#paint0_linear_341_249)"/>
        <path d="M23.4656 28.7976C23.5796 28.0032 24.6498 27.8551 24.9582 28.5961C33.0314 47.9935 39.6657 75.6338 44.1668 108.691C48.87 143.232 51.0573 182.314 50.4824 221.537C49.9075 260.76 46.5932 298.565 40.9128 330.693C35.5369 361.1 28.244 385.279 19.7805 400.829C19.3314 401.654 18.1179 401.393 18.018 400.458C26.9615 385.302 34.6643 360.505 40.259 328.861C45.8537 297.217 49.1179 259.983 49.6842 221.352C50.2504 182.721 48.0961 144.228 43.4639 110.208C38.8317 76.1878 31.9056 47.9926 23.4656 28.7976Z" fill="url(#paint1_linear_341_249)"/>
@@ -47,23 +53,15 @@ export default {
   },
 
   props: {
-    message: {
+    list: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    },
+    active: {
       type: String,
       default: ""
-    }
-  },
-
-  watch: {
-    message: function () {
-      if (!!this.$refs.refMessageContent) {
-        setTimeout(() => {
-          this.$refs.refMessageContent.scrollTo({
-            top: 0,
-            left: 0
-          });
-          this.initScroll();
-        }, 100);
-      }
     }
   },
 
@@ -82,7 +80,6 @@ export default {
         this.$refs.refScroll.style.display = 'none'
       }
     },
-
     callEventScrollMessage: function (event) {
       const currentScrollPosition = event.currentTarget.scrollTop || 0;
       const clientHeight = event.currentTarget.clientHeight || 0;
@@ -93,26 +90,25 @@ export default {
 
       this.$refs.refScrollDot.style.top = `${percentPositionScroll}%`;
       this.$refs.refScrollDot.style.left = `${leftPosition}px`;
+    },
+
+    changeActive: function (index) {
+      this.$emit("changeActive", index)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.iaop-message-content {
+.iaop-project-content {
   position: relative;
-
-  .cms-block-stub {
-    height: 350px;
-    overflow: auto;
-    padding-right: 30px;
-    box-sizing: border-box;
-  }
 }
-.iaop-message-content__scroll {
+.iaop-project-content__scroll {
   position: absolute;
-  top: 0; bottom: 0; right: -20px;
+  top: 0; bottom: 0; left: -20px;
   height: 100%;
+  transform: scale(-1, 1);
+  z-index: 2;
 
   svg {
     height: calc(100% + 54px);
@@ -126,6 +122,62 @@ export default {
     height: 10px;
     background-color: white;
     border-radius: 100%;
+  }
+}
+.iaop-project-content__list {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  overflow: auto;
+  padding: 1px 1px 1px 0;
+
+  & > * {
+    margin-top: 20px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.iaop-project-card {
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border-radius: 0px 25px 25px 0px;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  color: #969696;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(270.28deg, #211524 0.24%, #160b1a 85.18%);
+    z-index: -1;
+    border-radius: 0px 25px 25px 0px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: -1px; right: -1px; bottom: -1px; left: 0;
+    background: linear-gradient(259.54deg, #48464B 39.91%, rgba(0, 0, 0, 0) 57.89%);
+    z-index: -2;
+    border-radius: 0px 25px 25px 0px;
+  }
+  &:hover {
+    &:after {
+      background: linear-gradient(259.54deg, #5900EA 39.91%, rgba(0, 0, 0, 0) 57.89%);
+    }
+  }
+}
+.iaop-project-card.active {
+  color: white;
+  &:after {
+    background: linear-gradient(259.54deg, #5900EA 39.91%, rgba(0, 0, 0, 0) 57.89%);
   }
 }
 </style>

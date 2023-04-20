@@ -13,16 +13,16 @@
        <div class="center">
          <div class="advantages-section__icons">
            <div>
-             <img src="~/assets/svg/advantages/logo-center.svg"/>
+             <img src="~/assets/svg/advantages/check.svg"/>
            </div>
            <div>
-             <img src="~/assets/svg/advantages/logo-center.svg"/>
+             <img src="~/assets/svg/advantages/calendar.svg"/>
            </div>
            <div>
-             <img src="~/assets/svg/advantages/logo-center.svg"/>
+             <img src="~/assets/svg/advantages/console.svg"/>
            </div>
            <div>
-             <img src="~/assets/svg/advantages/logo-center.svg"/>
+             <img src="~/assets/svg/advantages/design.svg"/>
            </div>
          </div>
          <img src="~/assets/svg/advantages/center-icon.svg" class="advantages-section__icon-center"/>
