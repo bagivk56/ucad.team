@@ -2,7 +2,7 @@
  <div class="iaop-message-content">
    <div
      ref="refMessageContent"
-     v-html="[message,message,message,message,message].join(' ')"
+     v-html="message"
      class="cms-block-stub hidden-scroll-bar"
    />
 
