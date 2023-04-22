@@ -140,7 +140,7 @@ export default {
       //   return
       // }
 
-      const resposner = this.$axios.post('http://192.168.0.103:3000/send-telegram', {
+      const resposner = this.$axios.post('http://ucad.team.backend.na4u.ru/send-message', {
         text: 'asdasd'
       })
       console.log('resposner: ', resposner);

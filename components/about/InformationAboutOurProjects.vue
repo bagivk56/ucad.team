@@ -25,6 +25,7 @@
        </div>
        <div class="center">
          <img class="information-projects__center-svg" src="~/assets/svg/information-about-our-projects/center-image.svg"/>
+         <img v-if="activeImage" class="information-projects__image-project" :src="activeImage"/>
        </div>
        <div class="right">
          <MessageContent
@@ -47,49 +48,65 @@ export default {
     return {
       informations: [
         {
+          index: "-1",
+          title: this.$t('Информация об проектах.UCAD_TEAM.Заголовок'),
+          message: this.$t('Информация об проектах.UCAD_TEAM.Сообщение'),
+          // image: require("~/assets/jpg/information-about-our-projects/"),
+        },
+        {
           index: "0",
           title: this.$t('Информация об проектах.Строительные компании.Заголовок'),
           message: this.$t('Информация об проектах.Строительные компании.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Строительные компании.jpg"),
         },
         {
           index: "1",
           title: this.$t('Информация об проектах.Крипто-кошельки.Заголовок'),
           message: this.$t('Информация об проектах.Крипто-кошельки.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Frame 48096498.jpg"),
         },
         {
           index: "2",
           title: this.$t('Информация об проектах.Онлайн-магазины.Заголовок'),
           message: this.$t('Информация об проектах.Онлайн-магазины.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Frame 48096499.jpg"),
         },
         {
           index: "3",
           title: this.$t('Информация об проектах.Маркетплейсы.Заголовок'),
           message: this.$t('Информация об проектах.Маркетплейсы.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Frame 48096500.jpg"),
         },
         {
           index: "4",
           title: this.$t('Информация об проектах.Государственные заказы.Заголовок'),
           message: this.$t('Информация об проектах.Государственные заказы.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Frame 48096502.jpg"),
         },
         {
           index: "5",
           title: this.$t('Информация об проектах.CRM систем для HoReCa.Заголовок'),
           message: this.$t('Информация об проектах.CRM систем для HoReCa.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Frame 48096501.jpg"),
         },
         {
           index: "6",
           title: this.$t('Информация об проектах.ПО для высокоточного оборудования.Заголовок'),
           message: this.$t('Информация об проектах.ПО для высокоточного оборудования.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Frame 48096503.jpg"),
         }
       ],
 
-      activeInfo: "0"
+      activeInfo: "-1"
     }
   },
 
   computed: {
     activeMessage: function () {
       return (this.informations || []).find((t) => t.index === this.activeInfo)?.message
+    },
+    activeImage: function () {
+      return (this.informations || []).find((t) => t.index === this.activeInfo)?.image
     }
   },
 
@@ -126,6 +143,7 @@ export default {
     width: 510px;
     height: 510px;
     margin: 0 30px;
+    position: relative;
   }
 }
 
@@ -184,11 +202,28 @@ export default {
 }
 
 .information-projects__center-svg {
+  pointer-events: none;
+  transition: all 7s;
+  transform: rotate(0deg);
+}
+.information-about-our-projects__content .center:hover .information-projects__center-svg {
   -webkit-animation: rotating 7s linear infinite;
   -moz-animation: rotating 7s linear infinite;
   -ms-animation: rotating 7s linear infinite;
   -o-animation: rotating 7s linear infinite;
   animation: rotating 7s linear infinite;
+}
+
+.information-projects__image-project {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  width: calc(100% - 148px);
+  height: calc(100% - 148px);
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
 }
 
 @-webkit-keyframes rotating {
