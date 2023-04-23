@@ -112,7 +112,7 @@ export default {
 
 <style lang="scss" scoped>
 .information-about-our-projects {
-  padding: 60px 0;
+  padding: 140px 0;
   box-sizing: border-box;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #160313 62.84%, #000000 99.49%);
 }
