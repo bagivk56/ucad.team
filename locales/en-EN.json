@@ -62,5 +62,40 @@
   "Валидация форм": {
     "Обязательно к заполнению": "Required to fill out",
     "Неправильный формат ввода": "Invalid input format"
+  },
+  "Информация об проектах": {
+    "Приветвенное сообщение": "The signed non-disclosure agreement forbids showing you our completed projects, but we can still tell you something.",
+    "UCAD_TEAM": {
+      "Заголовок": "UCAD.TEAM",
+      "Сообщение": "The signed non-disclosure agreement forbids showing you our completed projects, but we can still tell you something."
+    },
+    "Строительные компании": {
+      "Заголовок": "Строительные компании",
+      "Сообщение": "Development of mobile applications for the use of cryptocurrency with the ability to connect to DAPP\nDevelopment of a trader's cabinet for placing signals\nDevelopment of the User's Cabinet for using trader's signals, as well as for creating your own signal"
+    },
+    "Крипто-кошельки": {
+      "Заголовок": "Крипто-кошельки",
+      "Сообщение": "Integration with external CRM systems, creating your own custom modules and multisites, this is not the whole list of the work we have done."
+    },
+    "Онлайн-магазины": {
+      "Заголовок": "Онлайн-магазины",
+      "Сообщение": "Smart search, filter system, product catalog, personal account, shopping cart, multilingual and integration with payment systems."
+    },
+    "Маркетплейсы": {
+      "Заголовок": "Маркетплейсы",
+      "Сообщение": "Integration with payment and tax systems, creation of logic of roles (customer \\ manufacturer \\ forwarder \\ courier \\ admin), development of an automatic loyalty system."
+    },
+    "Государственные заказы": {
+      "Заголовок": "Государственные заказы",
+      "Сообщение": "We can only say that we worked in accordance with GOST \\ ISO / IEC / IEEE 29148-2011."
+    },
+    "CRM систем для HoReCa": {
+      "Заголовок": "CRM систем для HoReCa",
+      "Сообщение": "We are developing a system for managing, forecasting and analyzing profitability. We support and add functions to the main application, two-way integrations, data collection service."
+    },
+    "ПО для высокоточного оборудования": {
+      "Заголовок": "ПО для высокоточного оборудования",
+      "Сообщение": "We are developing a system that conducts a full cycle of laboratory research. From a snapshot of a camera to a report generated based on the data obtained from the image. We support and supplement the main application with functions, develop new research methodologies, new integrations."
+    }
   }
 }
