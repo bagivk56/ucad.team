@@ -1,9 +1,6 @@
 <template>
  <div class="information-about-our-projects">
    <div class="container">
-     <div class="cms-block-stub information-about-our-projects__message">
-       {{$t('Информация об проектах.Приветвенное сообщение')}}
-     </div>
      <div class="information-about-our-projects__content">
        <div class="left">
          <ProjectContent
@@ -11,17 +8,6 @@
            :active="activeInfo"
            @changeActive="changeActive"
          />
-         <div v-if="false" class="information-projects__works light-scroll-bar">
-           <div
-             v-for="(information, index) in informations"
-             :key="`information-${index}`"
-             class="information-projects__work"
-             :class="{'active': Boolean(information.index === activeInfo)}"
-             @click="() => changeActive(information.index)"
-           >
-             {{information.title}}
-           </div>
-         </div>
        </div>
        <div class="center">
          <img class="information-projects__center-svg" src="~/assets/svg/information-about-our-projects/center-image.svg"/>
@@ -54,16 +40,16 @@ export default {
           // image: require("~/assets/jpg/information-about-our-projects/"),
         },
         {
-          index: "0",
-          title: this.$t('Информация об проектах.Строительные компании.Заголовок'),
-          message: this.$t('Информация об проектах.Строительные компании.Сообщение'),
-          image: require("~/assets/jpg/information-about-our-projects/Строительные компании.jpg"),
-        },
-        {
           index: "1",
           title: this.$t('Информация об проектах.Крипто-кошельки.Заголовок'),
           message: this.$t('Информация об проектах.Крипто-кошельки.Сообщение'),
           image: require("~/assets/jpg/information-about-our-projects/Frame 48096498.jpg"),
+        },
+        {
+          index: "0",
+          title: this.$t('Информация об проектах.Строительные компании.Заголовок'),
+          message: this.$t('Информация об проектах.Строительные компании.Сообщение'),
+          image: require("~/assets/jpg/information-about-our-projects/Строительные компании.jpg"),
         },
         {
           index: "2",
