@@ -190,8 +190,12 @@ export default {
 
 .information-projects__center-svg {
   pointer-events: none;
-  transition: all 7s;
-  transform: rotate(0deg);
+  //transition: all 7s;
+  //transform: rotate(0deg);
+
+  --animdur: 7s;
+  --animn: rotating;
+  animation: var(--animn, none) var(--animdur, 0s) var(--animtf, linear) var(--animdel, 0s) var(--animic, infinite) var(--animdir, alternate) var(--animfm, none) var(--animps, running);
 }
 .information-projects__image-icon {
   position: absolute;
