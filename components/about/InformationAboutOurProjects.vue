@@ -12,6 +12,7 @@
        <div class="center">
          <img class="information-projects__center-svg" src="~/assets/svg/information-about-our-projects/center-image.svg"/>
          <img v-if="activeImage" class="information-projects__image-project" :src="activeImage"/>
+         <img v-if="!activeImage" class="information-projects__image-icon" src="~/assets/svg/advantages/logo-center.svg"/>
        </div>
        <div class="right">
          <MessageContent
@@ -191,6 +192,12 @@ export default {
   pointer-events: none;
   transition: all 7s;
   transform: rotate(0deg);
+}
+.information-projects__image-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
 }
 .information-about-our-projects__content .center:hover .information-projects__center-svg {
   -webkit-animation: rotating 7s linear infinite;
