@@ -140,14 +140,10 @@ export default {
       //   return
       // }
 
-      const resposner = this.$axios.post('http://ucad.team.backend.na4u.ru/send-message', {
-        text: 'asdasd'
+      const resposner = this.$axios.post('/send-message', {
+        message: 'asdasd'
       })
       console.log('resposner: ', resposner);
-
-      // await this.$sendTelegramMessage({
-      //   message: "Hello"
-      // })
     }
   }
 }
