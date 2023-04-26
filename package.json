@@ -23,7 +23,7 @@
     "vuelidate": "^0.7.7"
   },
   "devDependencies": {
-    "sass": "^1.60.0",
+    "sass": "^1.61.0",
     "sass-loader": "^10",
     "style-loader": "^3.3.2"
   }
