@@ -224,4 +224,27 @@ export default {
     padding: 100px 0;
   }
 }
+@media (max-width: 1023px) {
+  .form-feedback {
+    padding: 40px 0;
+  }
+  .form-feedback__form {
+    flex-direction: column;
+    .right {
+      margin-left: 0;
+      margin-top: 30px;
+      width: 100%;
+    }
+  }
+  .form-feedback__action {
+    justify-content: initial;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
 </style>

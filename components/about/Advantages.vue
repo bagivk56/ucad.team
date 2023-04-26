@@ -234,4 +234,65 @@ export default {
     height: 180px;
   }
 }
+@media (max-width: 1023px) {
+  .advantages-section {
+    padding: 80px 0;
+  }
+  .advantages-section__content {
+    flex-wrap: wrap;
+    align-items: initial;
+    margin-left: -40px;
+
+    .center {
+      display: none;
+    }
+    .left, .right {
+      display: contents;
+      margin-left: -40px;
+      margin-top: -30px;
+      & > * {
+        width: calc(100% / 2 - 40px);
+        margin-left: 40px;
+        margin-top: 30px;
+        &:first-child {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 859px) {
+  .advantages-section {
+    padding: 40px 0;
+  }
+  .advantages-section__content {
+    margin-left: -20px;
+    .left, .right {
+      display: contents;
+      margin-left: -20px;
+      margin-top: -20px;
+      & > * {
+        width: calc(100% / 2 - 20px);
+        margin-left: 20px;
+        margin-top: 20px;
+        &:first-child {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 639px) {
+  .advantages-section__content {
+    margin-left: 0px;
+    .left, .right {
+      display: contents;
+      margin-left: 0px;
+      & > * {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+}
 </style>

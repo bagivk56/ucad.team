@@ -20,6 +20,13 @@
          />
        </div>
      </div>
+     <div class="information-about-our-projects__mobile-content">
+       <MobileCard
+         v-for="(info, index) in informations"
+         :key="`mobile-card-${index}`"
+         :data="info"
+       />
+     </div>
    </div>
  </div>
 </template>
@@ -27,6 +34,7 @@
 <script>
 import MessageContent from "~/components/information-about-our-projects/MessageContent.vue";
 import ProjectContent from "~/components/information-about-our-projects/ProjectContent.vue";
+import MobileCard from "~/components/information-about-our-projects/MobileCard.vue";
 
 export default {
   name: "InformationAboutOurProjects",
@@ -99,7 +107,8 @@ export default {
 
   components: {
     ProjectContent,
-    MessageContent
+    MessageContent,
+    MobileCard
   },
 
   methods: {
@@ -132,6 +141,9 @@ export default {
     margin: 0 30px;
     position: relative;
   }
+}
+.information-about-our-projects__mobile-content {
+  display: none;
 }
 
 .information-projects__works {
@@ -236,6 +248,24 @@ export default {
   .information-projects__image-project {
     width: calc(420px - 148px);
     height: calc(420px - 148px);
+  }
+}
+@media (max-width: 1023px) {
+  .information-about-our-projects {
+    padding: 40px 0;
+  }
+  .information-about-our-projects__content {
+    display: none;
+  }
+  .information-about-our-projects__mobile-content {
+    display: flex;
+    flex-direction: column;
+    & > * {
+      margin-top: 20px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
 

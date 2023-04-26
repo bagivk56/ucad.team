@@ -97,4 +97,9 @@ export default {
     display: none;
   }
 }
+@media (max-width: 1023px) {
+  .about-project {
+    padding: 80px 0;
+  }
+}
 </style>

@@ -17,3 +17,9 @@
 .custom-section__title {
   margin-bottom: 40px;
 }
+
+@media (max-width: 1023px) {
+  .custom-section__title {
+    margin-bottom: 20px;
+  }
+}

@@ -34,25 +34,28 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .advantage-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  &.--left {
-    align-items: flex-end;
-    .advantage-card__title, .advantage-card__message {
-      text-align: right;
+
+  @media (min-width: 1024px) {
+    &.--left {
+      align-items: flex-end;
+      .advantage-card__title, .advantage-card__message {
+        text-align: right;
+      }
     }
-  }
-  &.--right {
-    .advantage-card__title {
-      background: linear-gradient(90.12deg, #A80CEE 1.53%, #087AFF 99.92%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+    &.--right {
+      .advantage-card__title {
+        background: linear-gradient(90.12deg, #A80CEE 1.53%, #087AFF 99.92%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
     }
   }
 }
@@ -69,5 +72,13 @@ export default {
 }
 .advantage-card__message {
   margin-top: 10px;
+}
+
+@media (max-width: 1023px) {
+  .advantage-card__title {
+    br {
+      display: none;
+    }
+  }
 }
 </style>

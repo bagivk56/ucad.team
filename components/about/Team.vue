@@ -160,4 +160,24 @@ export default {
     }
   }
 }
+@media (max-width: 1023px) {
+  .team-section {
+    padding: 80px 0;
+  }
+  .team-section__cards {
+    & > * {
+      width: calc(100% / 2 - 10px);
+    }
+  }
+}
+@media (max-width: 639px) {
+  .team-section__cards {
+    flex-direction: column;
+    margin-left: 0;
+    & > * {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
 </style>
