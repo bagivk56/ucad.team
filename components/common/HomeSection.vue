@@ -205,4 +205,30 @@ export default {
   background-color: black;
   mix-blend-mode: multiply;
 }
+
+@media (max-width: 1199px) {
+  .home-section__logo {
+    font-size: 11vw;
+  }
+}
+@media (max-width: 1023px) {
+  .home-section {
+    &:after {
+      top: 50%; left: 50%;
+      right: initial; bottom: initial;
+      transform: translate(-50%, -50%);
+      max-height: 340px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@media (max-width: 639px) {
+  .home-section {
+    &:after {
+      max-height: initial;
+      background: radial-gradient(50% 50% at 50% 50%, #12032eb3 47.19%, #00000000 100%);
+    }
+  }
+}
 </style>
