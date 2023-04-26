@@ -16,7 +16,7 @@ export const locales = [
 
 export default {
   server: {
-    port: 55794,
+    port: 55736,
     host: '0.0.0.0'
   },
   head: {
