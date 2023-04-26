@@ -46,7 +46,11 @@
          </div>
        </div>
        <div class="form-feedback__action">
-         <button class="btn btn-primary" @click="sendMessage">
+         <button
+           class="btn btn-primary"
+           :disabled="isLoading"
+           @click="sendMessage"
+         >
            {{$t('Форма обратной связи.Отправить')}}
            <img src="~/assets/svg/common/arrow-right.svg"/>
          </button>
@@ -69,7 +73,8 @@ export default {
         email: "",
         username: "",
         message: ""
-      }
+      },
+      isLoading: false
     }
   },
 
@@ -120,11 +125,8 @@ export default {
 
   validations: {
     form: {
-      companyName: {
-        required
-      },
+      companyName: {},
       email: {
-        required,
         email
       },
       username: {
@@ -135,15 +137,32 @@ export default {
 
   methods: {
     sendMessage: async function () {
-      // this.$v.$touch()
-      // if (this.$v.$invalid) {
-      //   return
-      // }
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        return
+      }
 
-      const resposner = this.$axios.post('/send-message', {
-        message: 'asdasd'
-      })
-      console.log('resposner: ', resposner);
+      this.isLoading = true;
+
+      const formMessage = [
+        `Наименование компании - ${this.form?.companyName}`,
+        `Email пользователь - ${this.form?.email}`,
+        `Telegram username - ${this.form?.username}`,
+        `Раскажите о своем проекте - ${this.form?.message}`,
+      ].join(";%0A");
+      const isSuccessSend = this.$axios.post('/send-message', {
+        message: formMessage
+      }).then((res) => {
+        return true
+      }).catch(() => {
+        return false
+      });
+      this.isLoading = false;
+      if (!isSuccessSend) {
+        this.$toast.error(this.$t('Форма обратной связи.Ошибка отправления'));
+        return
+      }
+      this.$toast.success(this.$t('Форма обратной связи.Успешно отправлено'));
     }
   }
 }
