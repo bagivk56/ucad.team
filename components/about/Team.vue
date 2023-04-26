@@ -145,4 +145,19 @@ export default {
     margin-left: 30px;
   }
 }
+
+@media (max-width: 1199px) {
+  .team-section {
+    padding: 100px 0;
+  }
+  .team-section__cards {
+    margin-top: -10px;
+    margin-left: -10px;
+    & > * {
+      width: calc(100% / 3 - 10px);
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+  }
+}
 </style>

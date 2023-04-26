@@ -218,4 +218,10 @@ export default {
     }
   }
 }
+
+@media (max-width: 1199px) {
+  .form-feedback {
+    padding: 100px 0;
+  }
+}
 </style>

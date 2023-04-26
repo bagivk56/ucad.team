@@ -83,4 +83,18 @@ export default {
     color: rgba(8, 122, 255, 1);
   }
 }
+
+@media (max-width: 1199px) {
+  .about-project {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    &:before {
+      max-width: initial;
+      background: linear-gradient(90.55deg, #161616bd 51.84%, rgb(22 22 22 / 50%) 64.39%, rgba(22, 22, 22, 0) 86.99%);
+    }
+  }
+  .about-project__text {
+    display: none;
+  }
+}
 </style>

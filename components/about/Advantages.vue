@@ -202,4 +202,36 @@ export default {
   top: 50%; left: 50%;
   transform: translate(calc(-50% + 2px), calc(-50% + 4px));
 }
+
+@media (max-width: 1199px) {
+  .advantages-section {
+    padding: 100px 0;
+  }
+  .advantages-section__content {
+    .center {
+      width: 240px;
+    }
+  }
+
+  .advantages-section__icons {
+    & > * {
+      &:nth-child(1) {
+        top: 12px;
+      }
+      &:nth-child(2) {
+        top: 12px;
+      }
+      &:nth-child(3) {
+        bottom: 17px;
+      }
+      &:nth-child(4) {
+        bottom: 17px;
+      }
+    }
+  }
+  .advantages-section__icon-center {
+    width: 180px;
+    height: 180px;
+  }
+}
 </style>

@@ -220,6 +220,25 @@ export default {
   pointer-events: none;
 }
 
+@media (max-width: 1199px) {
+  .information-about-our-projects {
+    padding: 100px 0;
+  }
+ .information-about-our-projects__content {
+   .center {
+     width: 420px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+ }
+
+  .information-projects__image-project {
+    width: calc(420px - 148px);
+    height: calc(420px - 148px);
+  }
+}
+
 @-webkit-keyframes rotating {
   from {
     -webkit-transform: rotate(0deg);
