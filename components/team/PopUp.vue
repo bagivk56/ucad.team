@@ -128,6 +128,7 @@ export default {
 }
 .pop-up__tags {
   margin-top: 15px;
+  word-wrap: break-word;
 }
 .pop-up__close {
   position: absolute;
@@ -196,8 +197,21 @@ export default {
     border-radius: 0 0 10px 10px;
   }
   .pop-up__close {
+    width: 40px;
+    height: 40px;
+    position: fixed;
     top: 15px;
     right: 15px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@media (max-width: 639px) {
+  .pop-up__close {
+    width: 32px;
+    height: 32px;
   }
 }
 
