@@ -151,4 +151,21 @@ export default {
     filter: invert(1);
   }
 }
+
+@media (max-width: 1199px) {
+  .team-card__body {
+    padding: 20px;
+  }
+  .team-card__name {
+    margin-bottom: 10px;
+  }
+  .team-card__role {
+    margin-top: 14px;
+  }
+}
+@media (max-width: 639px) {
+  .team-card__body {
+    padding: 15px;
+  }
+}
 </style>

@@ -152,4 +152,55 @@ export default {
     transform: scale(1);
   }
 }
+
+@media (max-width: 1199px) {
+  .pop-up {
+    max-width: 100%;
+  }
+}
+@media (max-width: 1023px) {
+  .modal_body {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .pop-up {
+    flex-direction: column;
+    padding: 0;
+    background-color: black;
+    z-index: 1;
+    overflow: initial;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -1px; left: -1px; right: -1px; bottom: -1px;
+      background: linear-gradient(270deg, #A80CEE 0%, #087AFF 100%);
+      z-index: -1;
+      border-radius: 10px;
+      animation: shine-left 2.5s linear infinite;
+      background-size: 200% auto;
+    }
+  }
+  .pop-up__image {
+    max-width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .pop-up__content {
+    margin-left: 0;
+    padding: 20px;
+    background-color: black;
+    border-radius: 0 0 10px 10px;
+  }
+  .pop-up__close {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@keyframes shine-left {
+  to {
+    background-position: -200% center;
+  }
+}
 </style>

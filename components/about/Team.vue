@@ -148,7 +148,7 @@ export default {
 
 @media (max-width: 1199px) {
   .team-section {
-    padding: 100px 0;
+    padding: 60px 0;
   }
   .team-section__cards {
     margin-top: -10px;
@@ -162,7 +162,12 @@ export default {
 }
 @media (max-width: 1023px) {
   .team-section {
-    padding: 80px 0;
+    padding: 50px 0;
+  }
+}
+@media (max-width: 859px) {
+  .team-section {
+    padding: 40px 0;
   }
   .team-section__cards {
     & > * {

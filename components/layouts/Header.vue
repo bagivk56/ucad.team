@@ -34,6 +34,8 @@ export default {
 }
 .header__logo {
   position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   span {
     display: none;
@@ -87,7 +89,11 @@ export default {
   }
 }
 @media (max-width: 1023px) {
+  .header {
+    top: 10px;
+  }
   .header__logo {
+    height: 32px;
     &:active {
       span {
         display: block;

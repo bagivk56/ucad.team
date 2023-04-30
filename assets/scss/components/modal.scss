@@ -2,6 +2,7 @@
   position: sticky;
   top: 0; left: 0; right: 0; bottom: 0;
   height: 100vh;
+  width: 100%;
   z-index: 999;
 
   &.center {
@@ -11,6 +12,7 @@
   }
 }
 .modal_body {
+  max-width: 100vw;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -21,4 +23,15 @@
   z-index: -1;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #1D1209 62.84%, #000000 99.49%);
   opacity: 0.6;
+}
+
+@media (max-width: 1199px) {
+  .modal {
+    position: fixed;
+    display: initial!important;
+    overflow: auto;
+  }
+  .modal__overlay {
+    position: fixed;
+  }
 }

@@ -3,10 +3,10 @@
     <div class="page-about__scroll">
       <AboutProject/>
       <Team/>
-      <Advantages/>
-      <InformationAboutOurProjects/>
-      <FormFeedback/>
-      <Footer/>
+<!--      <Advantages/>-->
+<!--      <InformationAboutOurProjects/>-->
+<!--      <FormFeedback/>-->
+<!--      <Footer/>-->
     </div>
   </div>
 </template>

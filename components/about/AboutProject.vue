@@ -2,7 +2,7 @@
  <div class="about-project custom-section metal">
    <div class="container">
      <div class="about-project__content">
-       <h1 class="custom-section__title">
+       <h1 class="about-project__title custom-section__title">
          {{$t('О проекте.О проекте')}}
        </h1>
        <div class="cms-block-stub">
@@ -35,6 +35,8 @@ export default {
   padding-bottom: 100px;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
+
   &:before {
     content: "";
     position: absolute;
@@ -90,8 +92,15 @@ export default {
     padding-bottom: 80px;
     &:before {
       max-width: initial;
-      background: linear-gradient(90.55deg, #161616bd 51.84%, rgb(22 22 22 / 50%) 64.39%, rgba(22, 22, 22, 0) 86.99%);
+      background: linear-gradient(90deg, rgba(22,22,22,1) 75%, rgba(8,122,255,0) 90%);
+      opacity: 0.7;
+      backdrop-filter: blur(10px);
     }
+  }
+  .about-project__title {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 20px;
   }
   .about-project__text {
     display: none;
@@ -99,7 +108,30 @@ export default {
 }
 @media (max-width: 1023px) {
   .about-project {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  .about-project__title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 859px) {
+  .about-project {
+    padding-bottom: 50px;
+    &:before {
+      background: linear-gradient(90deg, rgb(22, 22, 22) 75%, rgba(8, 122, 255, 0) 100%);
+    }
+  }
+}
+@media (max-width: 639px) {
+  .about-project {
+    padding-bottom: 40px;
+    &:before {
+      background: rgb(22 22 22 / 80%);
+      backdrop-filter: blur(3px);
+      opacity: 1;
+    }
   }
 }
 </style>

@@ -32,7 +32,11 @@ h2, .h2 {
 
 @media (max-width: 1023px) {
   h1, .h1, h2, .h2 {
-    font-size: 32px;
-    line-height: 36px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .cms-block-stub {
+    font-size: 16px;
+    line-height: 26px;
   }
 }
