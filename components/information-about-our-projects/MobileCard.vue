@@ -3,13 +3,18 @@
    class="mobile-card"
    :class="{'open': isOpen}"
  >
-   <div class="mobile-card__head" @click="changeOpen">
-     {{data.title}}
-
-     <img src="~/assets/svg/common/arrow-bottom-gradient.svg"/>
+   <div
+     class="mobile-card__title"
+     @click="changeOpen"
+   >
+     {{ data.title }}
+     <img src="@/assets/svg/common/arrow-bottom-gradient.svg"/>
    </div>
-   <div v-if="isOpen" class="mobile-card__body">
-     <span v-html="data.message"/>
+   <div
+     v-if="isOpen"
+     class="mobile-card__message cms-block-stub"
+   >
+     {{ data.message }}
    </div>
  </div>
 </template>
@@ -33,6 +38,10 @@ export default {
     }
   },
 
+  mounted() {
+    console.log('data: ', this.data)
+  },
+
   methods: {
     changeOpen: function () {
       this.isOpen = !this.isOpen;
@@ -41,14 +50,15 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .mobile-card {
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.05);
   position: relative;
   z-index: 0;
-  border-radius: 25px;
 
   &.open {
-    .mobile-card__head img {
+    .mobile-card__title img {
       transform: rotate(180deg);
     }
   }
@@ -56,45 +66,57 @@ export default {
     content: "";
     position: absolute;
     top: -1px; left: -1px; right: -1px; bottom: -1px;
-    background: linear-gradient(259.54deg, #5900EA 39.91%, #003370 57.89%);
     z-index: -2;
+    background: linear-gradient(259.54deg, #5900EA 39.91%, #003370 57.89%);
+    background-size: 200% auto;
+    animation: shine-left 4s linear infinite;
     border-radius: 25px;
   }
   &:before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(270.28deg, #212524 0.24%, #160b1a 85.18%);
+    top: 0px; left: 0px; right: 0px; bottom: 0px;
     z-index: -1;
+    background: #161616;
     border-radius: 25px;
   }
 }
-.mobile-card__head {
+.mobile-card__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
   box-sizing: border-box;
 
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #FFFFFF;
+  font-family: 'Steppe';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  background: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: shine-left 2.5s linear infinite;
 
   img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    object-fit: contain;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+  }
+  span {
+    margin-bottom: -5px;
   }
 }
-.mobile-card__body {
+.mobile-card__message {
   padding: 15px;
   padding-top: 0;
-  box-sizing: border-box;
+}
 
-  font-size: 15px;
-  line-height: 23px;
-  color: #FFFFFF;
+@keyframes shine-left {
+  to {
+    background-position: -200% center;
+  }
 }
 </style>

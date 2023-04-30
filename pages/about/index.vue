@@ -4,7 +4,7 @@
       <AboutProject/>
       <Team/>
       <Advantages/>
-<!--      <InformationAboutOurProjects/>-->
+      <InformationAboutOurProjects/>
 <!--      <FormFeedback/>-->
 <!--      <Footer/>-->
     </div>

@@ -45,8 +45,7 @@ export default {
         {
           index: "-1",
           title: this.$t('Информация об проектах.UCAD_TEAM.Заголовок'),
-          message: this.$t('Информация об проектах.UCAD_TEAM.Сообщение'),
-          // image: require("~/assets/jpg/information-about-our-projects/"),
+          message: this.$t('Информация об проектах.UCAD_TEAM.Сообщение')
         },
         {
           index: "1",
@@ -234,7 +233,7 @@ export default {
 
 @media (max-width: 1199px) {
   .information-about-our-projects {
-    padding: 100px 0;
+    padding: 60px 0;
   }
  .information-about-our-projects__content {
    .center {
@@ -252,7 +251,7 @@ export default {
 }
 @media (max-width: 1023px) {
   .information-about-our-projects {
-    padding: 40px 0;
+    padding: 50px 0;
   }
   .information-about-our-projects__content {
     display: none;
@@ -266,6 +265,11 @@ export default {
         margin-top: 0;
       }
     }
+  }
+}
+@media (max-width: 859px) {
+  .information-about-our-projects {
+    padding: 40px 0;
   }
 }
 
