@@ -3,7 +3,7 @@
     <div class="page-about__scroll">
       <AboutProject/>
       <Team/>
-<!--      <Advantages/>-->
+      <Advantages/>
 <!--      <InformationAboutOurProjects/>-->
 <!--      <FormFeedback/>-->
 <!--      <Footer/>-->

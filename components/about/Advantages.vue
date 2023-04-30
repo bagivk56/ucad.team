@@ -37,12 +37,23 @@
          />
        </div>
      </div>
+     <div class="advantages-section__content-mobile">
+       <template
+         v-for="(data, index) in [...list_1, ...list_2]"
+       >
+         <CardMobile
+           :key="`CardMobile-${index}`"
+           :item="data"
+         />
+       </template>
+     </div>
    </div>
  </div>
 </template>
 
 <script>
 import Card from "~/components/advantages/Card.vue";
+import CardMobile from "~/components/advantages/CardMobile.vue";
 
 export default {
   name: "Advantages",
@@ -53,27 +64,32 @@ export default {
         {
           title: this.$t("Преимущества.Список.Умеем слышать Вас.Заголовок"),
           message: this.$t("Преимущества.Список.Умеем слышать Вас.Сообщение"),
+          icon: require("~/assets/svg/advantages/check.svg")
         },
         {
           title: this.$t("Преимущества.Список.Гибкая разработка.Заголовок"),
           message: this.$t("Преимущества.Список.Гибкая разработка.Сообщение"),
+          icon: require("~/assets/svg/advantages/calendar.svg")
         },
       ],
       list_2: [
         {
           title: this.$t("Преимущества.Список.Гарантии сроков.Заголовок"),
           message: this.$t("Преимущества.Список.Гарантии сроков.Сообщение"),
+          icon: require("~/assets/svg/advantages/console.svg")
         },
         {
           title: this.$t("Преимущества.Список.Собственный дизайн.Заголовок"),
           message: this.$t("Преимущества.Список.Собственный дизайн.Сообщение"),
+          icon: require("~/assets/svg/advantages/design.svg")
         },
       ],
     }
   },
 
   components: {
-    Card
+    Card,
+    CardMobile
   }
 }
 </script>
@@ -124,6 +140,9 @@ export default {
       border: 5px solid #46407B;
     }
   }
+}
+.advantages-section__content-mobile {
+  display: none;
 }
 .advantages-section__icons {
   position: absolute;
@@ -205,7 +224,7 @@ export default {
 
 @media (max-width: 1199px) {
   .advantages-section {
-    padding: 100px 0;
+    padding: 60px 0;
   }
   .advantages-section__content {
     .center {
@@ -236,28 +255,20 @@ export default {
 }
 @media (max-width: 1023px) {
   .advantages-section {
-    padding: 80px 0;
+    padding: 50px 0;
   }
   .advantages-section__content {
+    display: none;
+  }
+  .advantages-section__content-mobile {
+    display: flex;
     flex-wrap: wrap;
-    align-items: initial;
-    margin-left: -40px;
-
-    .center {
-      display: none;
-    }
-    .left, .right {
-      display: contents;
-      margin-left: -40px;
-      margin-top: -30px;
-      & > * {
-        width: calc(100% / 2 - 40px);
-        margin-left: 40px;
-        margin-top: 30px;
-        &:first-child {
-          margin-top: 30px;
-        }
-      }
+    margin-top: -20px;
+    margin-left: -20px;
+    & > * {
+      width: calc(100% / 2 - 20px);
+      margin-top: 20px;
+      margin-left: 20px;
     }
   }
 }
@@ -265,33 +276,9 @@ export default {
   .advantages-section {
     padding: 40px 0;
   }
-  .advantages-section__content {
-    margin-left: -20px;
-    .left, .right {
-      display: contents;
-      margin-left: -20px;
-      margin-top: -20px;
-      & > * {
-        width: calc(100% / 2 - 20px);
-        margin-left: 20px;
-        margin-top: 20px;
-        &:first-child {
-          margin-top: 20px;
-        }
-      }
-    }
-  }
-}
-@media (max-width: 639px) {
-  .advantages-section__content {
-    margin-left: 0px;
-    .left, .right {
-      display: contents;
-      margin-left: 0px;
-      & > * {
-        width: 100%;
-        margin-left: 0;
-      }
+  .advantages-section__content-mobile {
+    & > * {
+      width: calc(100% - 20px);
     }
   }
 }

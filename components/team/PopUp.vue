@@ -75,8 +75,6 @@ export default {
   position: relative;
   background: rgba(0, 0, 0, 0.8);
   transition: all 0.4s;
-
-  animation: pop-up-team-animation 1.5s;
 }
 .pop-up__image {
   width: 100vw;
@@ -153,6 +151,11 @@ export default {
   }
 }
 
+@media (min-width: 1200px) {
+  .pop-up {
+    animation: pop-up-team-animation 1.5s;
+  }
+}
 @media (max-width: 1199px) {
   .pop-up {
     max-width: 100%;
