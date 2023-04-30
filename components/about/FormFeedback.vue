@@ -2,7 +2,7 @@
  <section class="form-feedback">
    <div class="container">
      <div class="form-feedback__content">
-       <h2 class="custom-section__title">
+       <h2 class="form-feedback__title custom-section__title">
          {{$t('Форма обратной связи.Обратная связь')}}
        </h2>
        <div class="form-feedback__form">
@@ -221,18 +221,45 @@ export default {
 
 @media (max-width: 1199px) {
   .form-feedback {
-    padding: 100px 0;
+    padding: 60px 0;
+  }
+  .form-feedback__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .form-feedback__form {
+    .left {
+      & > * {
+        margin-top: 20px;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    .right {
+      width: calc(50% - 20px);
+      margin-left: 20px;
+    }
   }
 }
 @media (max-width: 1023px) {
   .form-feedback {
-    padding: 40px 0;
+    padding: 50px 0;
+  }
+  .form-feedback__content {
+    padding: 20px;
+    margin: 0 -20px;
+    border-radius: 0;
+  }
+  .form-feedback__title {
+    font-size: 24px;
+    line-height: 30px;
   }
   .form-feedback__form {
     flex-direction: column;
     .right {
       margin-left: 0;
-      margin-top: 30px;
+      margin-top: 20px;
       width: 100%;
     }
   }
@@ -242,9 +269,13 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       width: 100%;
     }
+  }
+}
+@media (max-width: 859px) {
+  .form-feedback {
+    padding: 40px 0;
   }
 }
 </style>
