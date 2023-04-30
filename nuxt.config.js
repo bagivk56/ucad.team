@@ -19,10 +19,12 @@ export default {
     port: 55736,
     host: '0.0.0.0'
   },
+
   head: {
     title: 'UCAD.TEAM',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
+      translate: 'no'
     },
     meta: [
       { charset: 'utf-8' },

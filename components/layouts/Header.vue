@@ -55,28 +55,62 @@ export default {
       right: -52px;
     }
   }
-  &:hover {
-    span {
-      display: block;
-      &:before, &:after {
-        content: attr(data-text);
-        position: absolute;
-        white-space: nowrap;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: #000;
-        clip: rect(0, 0, 0, 0);
+}
+
+@media (min-width: 1024px) {
+  .header__logo {
+    &:hover {
+      span {
+        display: block;
+        &:before, &:after {
+          content: attr(data-text);
+          position: absolute;
+          white-space: nowrap;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: #000;
+          clip: rect(0, 0, 0, 0);
+        }
+        &:before {
+          left: -2px;
+          text-shadow: 2px 0 rgba(8, 122, 255, 1);
+          animation: logotext-anim-2 3s infinite linear alternate-reverse;
+        }
+        &:after {
+          left: 2px;
+          text-shadow: -1px 0 rgba(66, 9, 176, 1);
+          animation: logotext-anim-1 2s infinite linear alternate-reverse;
+        }
       }
-      &:before {
-        left: -2px;
-        text-shadow: 2px 0 rgba(8, 122, 255, 1);
-        animation: logotext-anim-2 3s infinite linear alternate-reverse;
-      }
-      &:after {
-        left: 2px;
-        text-shadow: -1px 0 rgba(66, 9, 176, 1);
-        animation: logotext-anim-1 2s infinite linear alternate-reverse;
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .header__logo {
+    &:active {
+      span {
+        display: block;
+        &:before, &:after {
+          content: attr(data-text);
+          position: absolute;
+          white-space: nowrap;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: #000;
+          clip: rect(0, 0, 0, 0);
+        }
+        &:before {
+          left: -2px;
+          text-shadow: 2px 0 rgba(8, 122, 255, 1);
+          animation: logotext-anim-2 3s infinite linear alternate-reverse;
+        }
+        &:after {
+          left: 2px;
+          text-shadow: -1px 0 rgba(66, 9, 176, 1);
+          animation: logotext-anim-1 2s infinite linear alternate-reverse;
+        }
       }
     }
   }

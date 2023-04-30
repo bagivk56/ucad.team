@@ -29,7 +29,11 @@ export default {
   name: "HomeSection",
 
   mounted: function () {
+    document.body.style.overflow = "hidden";
     this.initCanvas();
+  },
+  destroyed: function () {
+    document.body.style = "";
   },
 
   methods: {
@@ -150,11 +154,13 @@ export default {
   color: #FFFFFF;
   cursor: pointer;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   & > * {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
   }
 
   .additional {
@@ -176,16 +182,6 @@ export default {
   }
   .blue {
     color: rgba(8, 122, 255, 1);
-  }
-
-  &:hover {
-    .main {
-      animation: animation-text-freeze-2 3s infinite linear alternate-reverse;
-    }
-    .additional {
-      display: flex;
-      animation: animation-text-freeze-1 3s infinite linear alternate-reverse;
-    }
   }
 }
 .home-section__background {
@@ -211,6 +207,19 @@ export default {
     font-size: 11vw;
   }
 }
+@media (min-width: 1024px) {
+  .home-section__logo {
+    &:hover {
+      .main {
+        animation: animation-text-freeze-2 3s infinite linear alternate-reverse;
+      }
+      .additional {
+        display: flex;
+        animation: animation-text-freeze-1 3s infinite linear alternate-reverse;
+      }
+    }
+  }
+}
 @media (max-width: 1023px) {
   .home-section {
     &:after {
@@ -220,6 +229,17 @@ export default {
       max-height: 340px;
       width: 100%;
       height: 100%;
+    }
+  }
+  .home-section__logo {
+    &:active {
+      .main {
+        animation: animation-text-freeze-2 3s infinite linear alternate-reverse;
+      }
+      .additional {
+        display: flex;
+        animation: animation-text-freeze-1 3s infinite linear alternate-reverse;
+      }
     }
   }
 }
