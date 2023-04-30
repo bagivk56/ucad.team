@@ -7,7 +7,7 @@
      class="mobile-card__title"
      @click="changeOpen"
    >
-     {{ data.title }}
+     <span>{{ data.title }}</span>
      <img src="@/assets/svg/common/arrow-bottom-gradient.svg"/>
    </div>
    <div
@@ -106,6 +106,7 @@ export default {
     margin-left: 10px;
   }
   span {
+    display: block;
     margin-bottom: -5px;
   }
 }

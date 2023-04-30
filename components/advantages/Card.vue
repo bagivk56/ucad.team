@@ -61,6 +61,7 @@ export default {
   }
 }
 .advantage-card__title {
+  display: block;
   font-family: 'Steppe';
   font-weight: 700;
   font-size: 20px;

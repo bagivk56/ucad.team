@@ -76,6 +76,7 @@ export default {
   }
   span {
     margin-bottom: -5px;
+    display: block;
   }
 }
 .advantage-card-mobile__message {
