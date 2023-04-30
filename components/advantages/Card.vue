@@ -40,7 +40,6 @@ export default {
   flex-direction: column;
   align-items: flex-start;
 
-
   @media (min-width: 1024px) {
     &.--left {
       align-items: flex-end;
@@ -50,7 +49,9 @@ export default {
     }
     &.--right {
       .advantage-card__title {
-        background: linear-gradient(90.12deg, #A80CEE 1.53%, #087AFF 99.92%);
+        background: linear-gradient(to left, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
+        animation: shine-left 2.5s linear infinite;
+        background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -64,11 +65,14 @@ export default {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  background: linear-gradient(270deg, #A80CEE 0%, #087AFF 100%);
+  background: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+
+  animation: shine 2.5s linear infinite;
 }
 .advantage-card__message {
   margin-top: 10px;
@@ -79,6 +83,17 @@ export default {
     br {
       display: none;
     }
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+@keyframes shine-left {
+  to {
+    background-position: -200% center;
   }
 }
 </style>
