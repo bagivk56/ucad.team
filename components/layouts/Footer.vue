@@ -17,11 +17,12 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .footer {
   padding: 60px 0;
   box-sizing: border-box;
   background-color: black;
+  background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #081422 62.84%, #000000 99.49%);
 }
 .footer__logo {
   display: flex;
@@ -33,5 +34,16 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 32px;
+}
+
+@media (max-width: 1199px) {
+  .footer__qr {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 859px) {
+  .footer {
+    padding: 40px 0;
+  }
 }
 </style>

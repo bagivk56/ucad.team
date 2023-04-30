@@ -172,6 +172,8 @@ export default {
 .form-feedback {
   padding: 140px 0;
   background: linear-gradient(90.66deg, #161616 0.57%, #160C1B 25.09%, #081422 62.84%, #000000 99.49%);
+  position: relative;
+  overflow: hidden;
 }
 .form-feedback__content {
   background: rgba(255, 255, 255, 0.05);
@@ -244,7 +246,7 @@ export default {
 }
 @media (max-width: 1023px) {
   .form-feedback {
-    padding: 50px 0;
+    padding: 0;
   }
   .form-feedback__content {
     padding: 20px;
@@ -271,11 +273,6 @@ export default {
       justify-content: center;
       width: 100%;
     }
-  }
-}
-@media (max-width: 859px) {
-  .form-feedback {
-    padding: 40px 0;
   }
 }
 </style>
