@@ -151,7 +151,7 @@ export default {
         `Email пользователь - ${this.form?.email}`,
         `Telegram username - ${this.form?.username}`,
         `Раскажите о своем проекте - ${this.form?.message}`,
-      ].join(";%0A");
+      ].join(";\n");
       const isSuccessSend = this.$axios.post('/send-message', {
         message: formMessage
       }).then((res) => {
