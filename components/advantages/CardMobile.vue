@@ -54,7 +54,7 @@ export default {
   }
 }
 .advantage-card-mobile__title {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   font-family: 'Steppe';
@@ -74,10 +74,6 @@ export default {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-  }
-  span {
-    margin-bottom: -5px;
-    display: block;
   }
 }
 .advantage-card-mobile__message {
