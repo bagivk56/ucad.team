@@ -47,27 +47,15 @@ export default {
         text-align: right;
       }
     }
-    &.--right {
-      .advantage-card__title {
-        background: linear-gradient(to left, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
-        animation: shine-left 2.5s linear infinite;
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-      }
-    }
   }
 }
 .advantage-card__title {
-  display: inline-flex;
+  display: block;
   font-family: 'Steppe';
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   background: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
-  -webkit-mask-image: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -97,6 +85,16 @@ export default {
 @keyframes shine-left {
   to {
     background-position: -200% center;
+  }
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) and ((text-fill-color: transparent) or (-webkit-text-fill-color: transparent)) {
+  .advantage-card__title {
+    background-image: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
   }
 }
 </style>

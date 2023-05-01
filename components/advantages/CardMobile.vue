@@ -62,7 +62,6 @@ export default {
   font-size: 18px;
   line-height: 18px;
   background: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
-  -webkit-mask-image: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -76,6 +75,10 @@ export default {
     height: 24px;
     margin-right: 10px;
   }
+  span {
+    margin-bottom: -5px;
+    display: block;
+  }
 }
 .advantage-card-mobile__message {
   margin-top: 10px;
@@ -84,6 +87,15 @@ export default {
 @keyframes shine-left {
   to {
     background-position: -200% center;
+  }
+}
+@supports ((background-clip: text) or (-webkit-background-clip: text)) and ((text-fill-color: transparent) or (-webkit-text-fill-color: transparent)) {
+  .advantage-card-mobile__title {
+    background-image: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
   }
 }
 </style>
