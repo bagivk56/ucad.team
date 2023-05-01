@@ -99,6 +99,7 @@ export default {
   background-clip: text;
   text-fill-color: transparent;
   animation: shine-left 2.5s linear infinite;
+  text-shadow: 0px 0px #00000000;
 
   img {
     width: 15px;
