@@ -63,17 +63,19 @@
 <script>
 import { required, email } from "vuelidate/lib/validators";
 
+const initForm = {
+  companyName: "",
+  email: "",
+  username: "",
+  message: ""
+}
+
 export default {
   name: "FormFeedback",
 
   data: function () {
     return {
-      form: {
-        companyName: "",
-        email: "",
-        username: "",
-        message: ""
-      },
+      form: {...initForm},
       isLoading: false
     }
   },
@@ -162,6 +164,8 @@ export default {
         this.$toast.error(this.$t('Форма обратной связи.Ошибка отправления'));
         return
       }
+      this.form = {...initForm};
+      this.$v.$reset()
       this.$toast.success(this.$t('Форма обратной связи.Успешно отправлено'));
     }
   }

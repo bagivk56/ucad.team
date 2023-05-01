@@ -19,10 +19,6 @@ export default {
         return {}
       }
     }
-  },
-
-  mounted() {
-    console.log('asd:', this.item)
   }
 }
 </script>

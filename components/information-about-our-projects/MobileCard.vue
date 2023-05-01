@@ -38,10 +38,6 @@ export default {
     }
   },
 
-  mounted() {
-    console.log('data: ', this.data)
-  },
-
   methods: {
     changeOpen: function () {
       this.isOpen = !this.isOpen;
