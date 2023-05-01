@@ -14,7 +14,7 @@
      v-if="isOpen"
      class="mobile-card__message cms-block-stub"
    >
-     {{ data.message }}
+     <span v-html="data.message"/>
    </div>
  </div>
 </template>
