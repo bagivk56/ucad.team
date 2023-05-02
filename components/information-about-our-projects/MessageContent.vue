@@ -123,7 +123,7 @@ export default {
     transform: translate(20px, 4px);
     width: 16px;
     height: 16px;
-    background-color: white;
+    background: linear-gradient(180deg, #003471 0%, #5644F7 48.75%, #A80CEE 100%);
     border-radius: 100%;
   }
 }
