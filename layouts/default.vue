@@ -1,6 +1,6 @@
 <template >
   <div class="layouts">
-    <Header/>
+    <Header v-if="isVisible"/>
     <div class="layouts__body">
       <nuxt/>
       <LanguageSelector/>
@@ -13,6 +13,12 @@
 import Header from "~/components/layouts/Header";
 
 export default {
+  computed: {
+    isVisible: function () {
+      return Boolean(this.getRouteBaseName() === 'about')
+    },
+  },
+
   components: {
     Header,
 

@@ -1,24 +1,27 @@
 <template>
- <section class="home-section">
-   <div id="home-section-logo" class="home-section__logo">
-     <div class="main">
-       <span class="white">UCAD</span>
-       <span class="dot">.</span>
-       <span class="blue">TEAM</span>
-     </div>
-     <div class="additional">
-       <span class="white" data-text="UCAD">UCAD</span>
-       <span class="dot" data-text=".">.</span>
-       <span class="blue" data-text=" TEAM">TEAM</span>
-     </div>
-   </div>
-   <div class="home-section__background"/>
-   <canvas id="home-section-canvas" class="home-section__canvas"/>
- </section>
+  <div>
+    <Header/>
+    <section class="home-section">
+      <nuxt-link :to="logoPath" class="home-section__logo">
+        <div class="main">
+          <span class="white">UCAD</span>
+          <span class="dot">.</span>
+          <span class="blue">TEAM</span>
+        </div>
+        <div class="additional">
+          <span class="white" data-text="UCAD">UCAD</span>
+          <span class="dot" data-text=".">.</span>
+          <span class="blue" data-text=" TEAM">TEAM</span>
+        </div>
+      </nuxt-link>
+      <div class="home-section__background"/>
+      <canvas id="home-section-canvas" class="home-section__canvas"/>
+    </section>
+  </div>
 </template>
 
 <script>
-
+import Header from "~/components/layouts/HeaderHome.vue";
 const colors = [
   '#4209B0',
   '#087AFF',
@@ -27,6 +30,16 @@ const colors = [
 
 export default {
   name: "HomeSection",
+
+  computed: {
+    logoPath: function () {
+      return this.localePath(Boolean(this.getRouteBaseName() === 'about') ? '/' : '/about')
+    },
+  },
+
+  components: {
+    Header
+  },
 
   mounted: function () {
     document.body.style.overflow = "hidden";
@@ -63,7 +76,7 @@ export default {
         else speed *= 0.92;
         if (speed < 0.01) speed = 0.01; else if (speed > 0.1) speed = 0.1;
       });
-      document.getElementById('home-section-logo').onclick = () => {
+      document.querySelector('#header-logo').onclick = () => {
         speed = (speed === 0.001) ? 0.1 : 0.001;
       }
 
@@ -155,6 +168,7 @@ export default {
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
 
   & > * {
     display: flex;
