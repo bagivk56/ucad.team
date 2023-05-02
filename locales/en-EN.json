@@ -78,7 +78,7 @@
       "Сообщение": "The signed non-disclosure agreement forbids showing you our completed projects, but we can still tell you something."
     },
     "Строительные компании": {
-      "Заголовок": "Строительные компании",
+      "Заголовок": "Сonstruction companies",
       "Сообщение": "A large Russian developer needed: Redesign and bringing all the developer's websites to a single view, creating a centralized content management system, integrating with CRM systems, creating a custom chessboard for selling apartments.<br/>Due to the huge competition in the construction market for the sale of apartments and frequently changing requirements, it was decided to work according to Agile, sprints of 2 weeks and a report for the customer once a month.<br/>Thus, it took us 4 months to recreate all the sites, connect the integration and create a chessboard.<br/>P.S: the discovery of new cities, the support of existing ones and the intuitive understanding of each other continues to this day!<br/>"
     },
     "Крипто-кошельки": {
@@ -86,23 +86,23 @@
       "Сообщение": "We were approached by a client who wanted to issue their own token with a further IPO. To do this, we proposed to develop a crypto wallet in your personal account, which will have the following functions:<br/>Trader account for placing signals<br/>User account<br/>Viewing your referral tree<br/>Ability to connect to DAPP<br/>Result: 8 months of development and a ready-made wallet with the functionality described above, ready for download in the AppStore and GooglePlay.<br/>"
     },
     "Онлайн-магазины": {
-      "Заголовок": "Онлайн-магазины",
+      "Заголовок": "Оnline shopping",
       "Сообщение": "Basically, customers of online stores ask for a product matrix for 30-50 thousand SKUs, a shopping cart, the possibility of online payment, a smart search system and a filter system. A little less often, we met requests for parsing competitor sites with a chaotic data set and structuring them for further work.<br/>Therefore, having completed our 14th online store, we are ready for any wishes of customers and will be happy to share our experience in creating online stores with you.<br/>"
     },
     "Маркетплейсы": {
-      "Заголовок": "Маркетплейсы",
+      "Заголовок": "Мarketplace",
       "Сообщение": "At the moment, our team is developing a marketplace for the sale of lumber. This is the first marketplace of its kind, which includes such roles as: Client, Manufacturer, Forwarder, Driver and Administrator. The LC of each role has a unique functionality and is interconnected with other roles. One of the features of the project is the implementation of a smart warehouse selection logic for the client in order to minimize costs and delivery times. The aggregator will unite more than 30 manufacturing enterprises, 150 forwarders and drivers, as well as thousands of satisfied customers who no longer need to look for the best price for lumber and delivery, now it's all in one service.<br/>Project readiness 98%.<br/>"
     },
     "Государственные заказы": {
-      "Заголовок": "Государственные заказы",
+      "Заголовок": "Government orders",
       "Сообщение": "An order was received from one of the regions of the Russian Federation for the development of a video surveillance interface in order to identify and search for violations. During the execution of the order, work on the project went through the Waterfall system. The completed order has successfully passed all checks and is in use.<br/>"
     },
     "CRM систем для HoReCa": {
-      "Заголовок": "CRM систем для HoReCa",
+      "Заголовок": "CRM-systems for HoReCa",
       "Сообщение": "We are developing a system for managing, forecasting and analyzing profitability. We support and add functions to the main application, two-way integrations, data collection service."
     },
     "ПО для высокоточного оборудования": {
-      "Заголовок": "ПО для высокоточного оборудования",
+      "Заголовок": "Software for high-precision equipment",
       "Сообщение": "We are developing a system that conducts a full cycle of laboratory research. From a snapshot of a camera to a report generated based on the data obtained from the image. We support and supplement the main application with functions, develop new research methodologies, new integrations."
     }
   }
