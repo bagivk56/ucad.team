@@ -54,7 +54,7 @@ export default {
             "SCRUM\\KANBAN",
             "Jira\\Trello\\Pyrus\\1C\\MacroCRM\\ProfitBase",
             "Git\\Figma",
-            "Очень сильные «софт» скилы",
+            this.$t('Команда.ЕвгенийМенеджер.Очень сильные «софт» скилы'),
           ],
           gradientX1: "2",
           gradientX2: "268.348",
