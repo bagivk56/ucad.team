@@ -57,9 +57,14 @@
     "Обратная связь": "Feedback",
     "Название компании": "Company name",
     "Расскажите о своем проекте": "Tell us about your project",
+    "telegram": "Enter your Telegram Username",
     "Отправить": "Send",
     "Успешно отправлено": "We have received your message, we will discuss it at the next meetup and give you feedback. In the meantime, take a cookie \uD83C\uDF6A",
-    "Ошибка отправления": "There was an error sending, please try again later."
+    "Ошибка отправления": "There was an error sending, please try again later.",
+    "Вам нужен UCAD_T для работы над Вашим проектом?": "Do you need UCAD.T to work on your project?",
+    "Хотите чтобы мы связались с Вами?": "Would you like us to contact you?",
+    "Хотите работать в нашей команде?": "Do you want to work in our team?",
+    "Хотите следить за новостями UCAD_T?": "Do you want to follow the news of UCAD.T?"
   },
   "Валидация форм": {
     "Обязательно к заполнению": "Required to fill out",
