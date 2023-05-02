@@ -1,5 +1,5 @@
 <template>
-  <div class="left-side-bar-scroll">
+  <div v-if="isVisible" class="left-side-bar-scroll">
     <div class="language" @click="changeLanguage">
       {{currentLanguage}}
     </div>
@@ -20,6 +20,10 @@ export default {
       }
 
       return (this.$i18n?.locales || []).find((t) => t.code === localeCodes[currentIndex])?.name
+    },
+
+    isVisible: function () {
+      return Boolean(this.getRouteBaseName() === 'about')
     }
   },
 
@@ -41,9 +45,10 @@ export default {
 <style lang="scss" scoped>
 .left-side-bar-scroll {
   position: fixed;
-  padding: 10px 24px;
-  left: 0; bottom: 24px;
+  padding: 24px;
+  left: 0; top: 0px;
   cursor: pointer;
+  z-index: 999;
 
   font-weight: 300;
   font-size: 16px;
