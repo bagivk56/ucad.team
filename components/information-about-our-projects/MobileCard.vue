@@ -95,6 +95,7 @@ export default {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+  color: white;
   animation: shine-left 2.5s linear infinite;
   text-shadow: 0px 0px #00000000;
 

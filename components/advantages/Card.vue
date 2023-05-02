@@ -55,6 +55,7 @@ export default {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  color: white;
   background: linear-gradient(to right, rgba(8,122,255,1) 0%, rgba(168,12,238,1) 50%, rgba(168,12,238,1) 75%, rgba(8,122,255,1) 100%);
   background-size: 200% auto;
   -webkit-background-size: 200% auto;
