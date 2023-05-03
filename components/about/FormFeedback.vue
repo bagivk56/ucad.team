@@ -2,9 +2,6 @@
   <section class="form-feedback">
     <div class="container">
       <div class="form-feedback__content">
-        <h2 class="form-feedback__title">
-          {{ $t('Форма обратной связи.Обратная связь') }}
-        </h2>
         <div class="form-feedback__body">
           <div class="--left">
             <div class="form-feedback__switch">
@@ -32,7 +29,7 @@
             </div>
           </div>
           <div class="--right">
-            <div class="form-feedback__logo">
+            <div v-if="false" class="form-feedback__logo">
               <span>UCAD</span><span>.</span><span> T</span>
             </div>
             <div class="form-feedback__qrcode">
@@ -182,22 +179,25 @@ export default {
 }
 .form-feedback__body {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   .--left {
     width: 100%;
     max-width: 640px;
+    margin-right: 30px;
   }
   .--right {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     flex: 1;
   }
 }
 .form-feedback__switch {
   display: flex;
   flex-direction: column;
+  padding-left: 30px;
 
   & > * {
     display: flex;
@@ -205,9 +205,10 @@ export default {
     justify-content: space-between;
     margin-top: 20px;
 
-    font-size: 16px;
-    line-height: 29px;
-    color: #CDCDCD;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    font-weight: 600;
 
     .switch {}
     &:first-child {
@@ -217,9 +218,8 @@ export default {
 }
 .form-feedback__contacts {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  margin-top: 42px;
+  margin-top: 30px;
 
   .form-item {
     flex: 1;
@@ -233,8 +233,7 @@ export default {
     display: flex;
     align-items: center;
     height: 55px;
-    margin-left: auto;
-    margin-top: 20px;
+    margin-left: 20px;
 
     img {
       filter: invert(1);
@@ -268,8 +267,21 @@ export default {
   }
 }
 .form-feedback__qrcode {
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  max-width: 240px;
+  position: relative;
+
+  & > * {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &:after {
+    content: "";
+    float: left;
+    padding-top: 100%;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -283,7 +295,8 @@ export default {
   }
   .form-feedback__body {
     .--left {
-      max-width: 540px;
+      max-width: 600px;
+      margin-right: 20px;
     }
   }
 }
@@ -293,16 +306,23 @@ export default {
   }
   .form-feedback__content {
     margin: 0 -20px;
-    padding: 20px;
+    padding: 50px 20px;
     border-radius: 0;
   }
+  .form-feedback__switch {
+    padding-left: 0;
+  }
   .form-feedback__contacts {
-    margin-top: 10px;
+    //flex-direction: column;
+    margin-top: 20px;
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      //width: 100%;
+      //margin-top: 10px;
+      margin-left: 10px;
+      height: 50px;
     }
   }
   .form-feedback__title {
@@ -316,7 +336,7 @@ export default {
       max-width: initial;
     }
     .--right {
-      margin-top: 20px;
+      margin-top: 40px;
     }
   }
 }
@@ -327,7 +347,8 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 10px;
+      margin-left: 0;
       height: 50px;
       padding: 0;
     }

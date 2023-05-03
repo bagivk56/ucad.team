@@ -5,7 +5,10 @@
        v-for="(item, index) in list"
        :key="`iaop-project-card-${index}`"
        class="iaop-project-card"
-       :class="{'active': item.index === active}"
+       :class="{
+         'active': item.index === active,
+         'main': index === 0
+       }"
        @click="() => changeActive(item.index)"
      >
        {{ item.title }}
@@ -152,6 +155,9 @@ export default {
   text-align: right;
   color: #969696;
 
+  &.main:after {
+    background: linear-gradient(259.54deg, #5900EA -8.69%, #D0792F 39.91%, rgba(0, 0, 0, 0) 57.89%)!important;
+  }
   &:before {
     content: "";
     position: absolute;

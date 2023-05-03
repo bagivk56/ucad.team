@@ -6,7 +6,7 @@
       <Advantages/>
       <InformationAboutOurProjects/>
       <FormFeedback/>
-      <Footer/>
+<!--      <Footer/>-->
     </div>
   </div>
 </template>
