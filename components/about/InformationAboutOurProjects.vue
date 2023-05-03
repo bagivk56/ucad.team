@@ -25,6 +25,7 @@
          v-for="(info, index) in informations"
          :key="`mobile-card-${index}`"
          :data="info"
+         :main="Boolean(index === 0)"
        />
      </div>
    </div>

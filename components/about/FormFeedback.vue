@@ -10,47 +10,6 @@
             <div class="form-feedback__switch">
               <div>
                 <span>{{$t('Форма обратной связи.Вам нужен UCAD_T для работы над Вашим проектом?')}}</span>
-                <label class="switch" :class="{'active': form.isWorkProject}">
-                  <input
-                    v-model="form.isWorkProject"
-                    type="checkbox"
-                    hidden
-                  />
-                  <span/>
-                </label>
-              </div>
-              <div>
-                <span>{{$t('Форма обратной связи.Хотите чтобы мы связались с Вами?')}}</span>
-                <label class="switch" :class="{'active': form.isWouldContactYou}">
-                  <input
-                    v-model="form.isWouldContactYou"
-                    type="checkbox"
-                    hidden
-                  />
-                  <span/>
-                </label>
-              </div>
-              <div>
-                <span>{{$t('Форма обратной связи.Хотите работать в нашей команде?')}}</span>
-                <label class="switch" :class="{'active': form.isYouWantWorkTeam}">
-                  <input
-                    v-model="form.isYouWantWorkTeam"
-                    type="checkbox"
-                    hidden
-                  />
-                  <span/>
-                </label>
-              </div>
-              <div>
-                <span>{{$t('Форма обратной связи.Хотите следить за новостями UCAD_T?')}}</span>
-                <label class="switch" :class="{'active': form.isGetNewNews}">
-                  <input
-                    v-model="form.isGetNewNews"
-                    type="checkbox"
-                    hidden
-                  />
-                  <span/>
-                </label>
               </div>
             </div>
             <div class="form-feedback__contacts">
@@ -65,7 +24,6 @@
               </div>
               <button
                 class="btn btn-primary"
-                :class="{'visible': (form.isWorkProject || form.isGetNewNews || form.isWouldContactYou || form.isYouWantWorkTeam)}"
                 @click="sendMessage"
               >
                 {{$t('Форма обратной связи.Отправить')}}
@@ -224,6 +182,7 @@ export default {
 }
 .form-feedback__body {
   display: flex;
+  align-items: flex-end;
 
   .--left {
     width: 100%;
@@ -258,6 +217,7 @@ export default {
 }
 .form-feedback__contacts {
   display: flex;
+  flex-direction: column;
   width: 100%;
   margin-top: 42px;
 
@@ -273,28 +233,16 @@ export default {
     display: flex;
     align-items: center;
     height: 55px;
+    margin-left: auto;
+    margin-top: 20px;
 
     img {
       filter: invert(1);
       margin-left: 10px;
     }
-
-    @media (min-width: 640px) {
-      width: 0;
-      overflow: hidden;
-      padding: 15px 0;
-      border: none;
-      margin-left: 0;
-      transition: all 0.2s;
-      &.visible {
-        width: auto;
-        padding: 15px 24px;
-        margin-left: 20px;
-      }
-    }
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     .form-item-error {
       position: absolute;
       left: 0; top: 100%;
@@ -348,12 +296,22 @@ export default {
     padding: 20px;
     border-radius: 0;
   }
+  .form-feedback__contacts {
+    margin-top: 10px;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
   .form-feedback__title {
     font-size: 24px;
     line-height: 30px;
   }
   .form-feedback__body {
     flex-direction: column;
+    align-items: initial;
     .--left {
       max-width: initial;
     }

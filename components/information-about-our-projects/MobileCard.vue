@@ -1,7 +1,10 @@
 <template>
  <div
    class="mobile-card"
-   :class="{'open': isOpen}"
+   :class="{
+     'open': isOpen,
+     'main': main
+   }"
  >
    <div
      class="mobile-card__title"
@@ -25,7 +28,7 @@ export default {
 
   data: function () {
     return {
-      isOpen: false
+      isOpen: this.main
     }
   },
 
@@ -35,6 +38,10 @@ export default {
       default: () => {
         return {}
       }
+    },
+    main: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -57,6 +64,11 @@ export default {
     .mobile-card__title img {
       transform: rotate(180deg);
     }
+  }
+  &.main:after {
+    background: linear-gradient(100deg, #5900EA -8.69%, #D0792F 80.07%);
+    background-size: 200% auto;
+    animation: shine-left 4s linear infinite;
   }
   &:after {
     content: "";

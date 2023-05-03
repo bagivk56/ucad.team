@@ -55,12 +55,12 @@
     }
   },
   "Форма обратной связи": {
-    "Обратная связь": "Feedback",
+    "Обратная связь": "Contact us",
     "Название компании": "Company name",
     "Расскажите о своем проекте": "Tell us about your project",
     "telegram": "Enter your Telegram Username",
     "Отправить": "Send",
-    "Успешно отправлено": "We have received your message, we will discuss it at the next meetup and give you feedback. In the meantime, take a cookie \uD83C\uDF6A",
+    "Успешно отправлено": "We will contact you shortly",
     "Ошибка отправления": "There was an error sending, please try again later.",
     "Вам нужен UCAD_T для работы над Вашим проектом?": "Do you need UCAD.T to work on your project?",
     "Хотите чтобы мы связались с Вами?": "Would you like us to contact you?",
