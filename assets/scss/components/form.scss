@@ -23,7 +23,13 @@
   }
 }
 .form-item-input.--textarea {
+  height: 140px!important;
+  min-height: 140px!important;
+  max-height: 140px!important;
 
+  width: 100%!important;
+  min-width: 100%!important;
+  max-width: 100%!important;
 }
 .form-item-error {
   margin-top: 8px;
@@ -79,5 +85,30 @@
 
   &.active:after {
     width: 100%;
+  }
+}
+
+.form-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -8px;
+  margin-left: -8px;
+  & > * {
+    margin-top: 8px;
+    margin-left: 8px;
+    background: #999999;
+    border-radius: 100px;
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    padding: 10px 14px;
+    cursor: pointer;
+
+    &.active {
+      background: linear-gradient(90.35deg, #A80CEE 0%, #087AFF 98.1%);
+    }
+    &:hover {
+      background: #087AFF;
+    }
   }
 }

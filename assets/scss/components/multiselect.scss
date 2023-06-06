@@ -1,0 +1,86 @@
+@import 'vue-multiselect/dist/vue-multiselect.min.css';
+
+.multiselect {
+  cursor: pointer;
+
+  &.multiselect--active {
+    .multiselect__tags {
+      border-color: #ea5e20!important;
+    }
+    .multiselect__select {
+      transform: translateY(-50%) rotate(180deg);
+      filter: invert(45%) sepia(26%) saturate(6345%) hue-rotate(353deg) brightness(98%) contrast(87%);
+    }
+  }
+  &:hover {
+    .multiselect__tags {
+      border-color: rgba(234,94,32,.6);
+    }
+  }
+}
+.multiselect__tags {
+  padding: 7px 15px;
+  border-radius: 10px;
+  border-color: #DCDCDC;
+}
+.multiselect__input, .multiselect__single, .multiselect__placeholder {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #939393;
+}
+.multiselect__single {
+  color: #373f50;
+}
+.multiselect__content-wrapper {
+  flex-direction: column;
+  border-color: #ea5e20;
+  border-radius: 0 0 10px 10px;
+  //overflow: hidden;
+}
+.multiselect__content {
+  overflow: auto;
+}
+.multiselect__option {
+  padding: 8px 15px;
+  box-sizing: border-box;
+  border-top: 1px solid #DCDCDC;
+  cursor: pointer;
+
+  font-size: 14px;
+  line-height: 24px;
+  color: #373F50;
+
+  &:hover {
+    color: #EA5E20;
+  }
+  &:after {
+    content: none!important;
+  }
+}
+.multiselect__option--selected {
+  font-weight: 400;
+}
+.multiselect__option--highlight {
+  color: #EA5E20!important;
+  background-color: transparent!important;
+}
+.multiselect__select {
+  height: 24px;
+  width: 24px;
+  top: 50%; right: 10px;
+  transform: translateY(-50%);
+  filter: invert(59%) sepia(12%) saturate(12%) hue-rotate(331deg) brightness(96%) contrast(93%);
+  z-index: 5;
+
+  //background-image: url("~/assets/img/svg/catalog/filter-chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:before {
+    content: none!important;
+  }
+}
