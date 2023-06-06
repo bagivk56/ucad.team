@@ -195,19 +195,87 @@
 
        <div class="specialist-section">
          <div class="specialist-section__title">Условия работы</div>
-       </div>
-       <div class="specialist-section">
-         <div class="specialist-section__title">Паспортные данные</div>
-       </div>
-       <div class="specialist-section">
-         <div class="specialist-section__title">Гражданство</div>
-       </div>
-
-       <div class="specialist-section">
-         <div class="specialist-section__title">Проф. сообщества</div>
-       </div>
-       <div class="specialist-section">
-         <div class="specialist-section__title">Языки</div>
+         <div class="form-contacts">
+           <div class="--1-1 form-item-label">Ставка специалиста</div>
+           <div class="--1-2">
+             <div class="form-item">
+               <div class="form-item-label">В час</div>
+               <input
+                 v-model="form.hour_price"
+                 type="text"
+                 placeholder="Введите фамилию"
+                 class="form-item-input"
+               />
+               <div v-if="_err_hour_price" class="form-item-error">{{_err_hour_price}}</div>
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="form-item">
+               <div class="form-item-label">В месяц</div>
+               <input
+                 v-model="form.surname"
+                 type="text"
+                 placeholder="Введите фамилию"
+                 class="form-item-input"
+               />
+               <div v-if="_err_surname" class="form-item-error">{{_err_surname}}</div>
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="switch-label" @click="() => changeForm1('international_projects', !Boolean(form.international_projects))">
+               <div class="switch" :class="{'active': Boolean(form.international_projects)}">
+                 <input type="checkbox" :checked="Boolean(form.international_projects)" hidden style="user-select: none"/>
+                 <span/>
+               </div>
+               Готов работать на зарубежных проектах
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="switch-label" @click="() => changeForm1('business_trips', !Boolean(form.business_trips))">
+               <div class="switch" :class="{'active': Boolean(form.business_trips)}">
+                 <input type="checkbox" :checked="Boolean(form.business_trips)" hidden style="user-select: none"/>
+                 <span/>
+               </div>
+               Командировки
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="switch-label" @click="() => changeForm2('work_formats', 'office', !Boolean(form.work_formats.office))">
+               <div class="switch" :class="{'active': Boolean(form.work_formats.office)}">
+                 <input type="checkbox" :checked="Boolean(form.work_formats.office)" hidden/>
+                 <span/>
+               </div>
+               Формат работы: Офис
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="switch-label" @click="() => changeForm2('work_formats', 'remote', !Boolean(form.work_formats.remote))">
+               <div class="switch" :class="{'active': Boolean(form.work_formats.remote)}">
+                 <input type="checkbox" :checked="Boolean(form.work_formats.remote)" hidden/>
+                 <span/>
+               </div>
+               Формат работы: Удаленно
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="switch-label" @click="() => changeForm2('relocation_place', 'inCountry', !Boolean(form.relocation_place.inCountry))">
+               <div class="switch" :class="{'active': Boolean(form.relocation_place.inCountry)}">
+                 <input type="checkbox" :checked="Boolean(form.relocation_place.inCountry)" hidden style="user-select: none"/>
+                 <span/>
+               </div>
+               Релокации внутри страны
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="switch-label" @click="() => changeForm2('relocation_place', 'outCountry', !Boolean(form.relocation_place.outCountry))">
+               <div class="switch" :class="{'active': Boolean(form.relocation_place.outCountry)}">
+                 <input type="checkbox" :checked="Boolean(form.relocation_place.outCountry)" hidden/>
+                 <span/>
+               </div>
+               Релокация за границу
+             </div>
+           </div>
+         </div>
        </div>
      </div>
    </div>
@@ -268,6 +336,18 @@ export default {
           {}
         ],
 
+        hour_price: "",
+        work_formats: {
+          office: false,
+          remote: false,
+        },
+        international_projects: false,
+        business_trips: false,
+        relocation_place: {
+          inCountry: false,
+          outCountry: false,
+        },
+
         country: "Россия",
       },
     }
@@ -311,6 +391,19 @@ export default {
     }
     const newList = cities.map((child) => getTreeCategogories(child));
     console.log('newList: ', JSON.stringify(newList));
+  },
+
+  methods: {
+    changeForm1: function (key1, value) {
+      let form = {...this.form};
+      form[key1] = value;
+      this.form = form;
+    },
+    changeForm2: function (key1, key2, value) {
+      let form = {...this.form};
+      form[key1][key2] = value;
+      this.form = form;
+    }
   }
 }
 </script>
