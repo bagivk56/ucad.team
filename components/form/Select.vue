@@ -8,6 +8,7 @@
       :label="label"
       :group-values="groupValues"
       :group-label="groupLabel"
+      :placeholder="placeholder"
 
       @input="onInput"
     />
@@ -52,6 +53,10 @@ export default {
       type: String,
       default: ""
     },
+    placeholder: {
+      type: String,
+      default: "Выберите"
+    },
   },
 
   methods: {
@@ -62,6 +67,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.form-item-select {
 
+}
 </style>

@@ -10,9 +10,10 @@
               <div class="form-item">
                 <div class="form-item-label">Название</div>
                 <input
-                  :value="project.title"
+                  v-model="project.title"
                   class="form-item-input"
                   placeholder="Введите название проекта"
+                  @inpu="(event) => changeProject(index, 'title', event)"
                 />
               </div>
             </div>
@@ -20,9 +21,10 @@
               <div class="form-item">
                 <div class="form-item-label">Роль в проекте</div>
                 <input
-                  :value="project.role"
+                  v-model="project.role"
                   class="form-item-input"
                   placeholder="Введите роль в проекте"
+                  @inpu="(event) => changeProject(index, 'role', event)"
                 />
               </div>
             </div>
@@ -30,33 +32,33 @@
               <div class="form-item">
                 <div class="form-item-label">Обязанности в проекте</div>
                 <textarea
-                  :value="project.role"
+                  v-model="project.description"
                   class="form-item-input --textarea"
                   placeholder="Опишите, что специалист делал на проекте"
+                  @inpu="(event) => changeProject(index, 'description', event)"
                 />
               </div>
             </div>
             <div class="--1-2">
               <div class="form-item">
                 <div class="form-item-label">Начало работы</div>
-                <input
-                  :value="project.title"
-                  class="form-item-input"
-                  placeholder="Введите название проекта"
+                <DateTimePicker
+                  v-model="project.start"
                 />
               </div>
             </div>
             <div class="--1-2">
               <div class="form-item">
                 <div class="form-item-label">Окончание</div>
-                <input
-                  :value="project.title"
-                  class="form-item-input"
-                  placeholder="Введите название проекта"
+                <DateTimePicker
+                  v-model="project.finish"
                 />
               </div>
             </div>
-            <div class="--1-1"></div>
+
+            <div class="project-card__remove" @click="() => removeProject(index)">
+              <img src="@/assets/svg/common/close.svg"/>
+            </div>
           </div>
         </div>
       </template>
@@ -73,6 +75,8 @@
 </template>
 
 <script>
+import DateTimePicker from "~/components/form/DateTimePicker.vue";
+
 const newProkect = {
   title: "",
   role: "",
@@ -91,10 +95,22 @@ export default {
     }
   },
 
+  components: {
+    DateTimePicker
+  },
+
   methods: {
     addProject: function () {
       let projects = [...this.projects];
       projects.push({...newProkect});
+      this.$emit("change", projects)
+    },
+    removeProject: function (index) {
+      let projects = [...this.projects];
+      projects.splice(index, 1);
+      if (projects.length <= 0) {
+        projects.push({...newProkect});
+      }
       this.$emit("change", projects)
     }
   }
@@ -132,6 +148,7 @@ export default {
   border-radius: 25px;
   margin-top: -10px;
   margin-left: -10px;
+  position: relative;
 
   & > * {
     width: calc(100% - 10px);
@@ -142,5 +159,15 @@ export default {
       width: calc(100% / 2 - 10px);
     }
   }
+}
+.project-card__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 </style>

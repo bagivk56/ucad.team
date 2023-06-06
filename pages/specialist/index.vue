@@ -139,7 +139,7 @@
                <div v-if="_err_key_skill" class="form-item-error">{{_err_key_skill}}</div>
              </div>
            </div>
-           <div class="--1-1">
+           <div class="--1-2">
              <div class="form-item">
                <div class="form-item-label">Грейд</div>
                <SelectTemplate
@@ -152,7 +152,7 @@
                <div v-if="_err_grade" class="form-item-error">{{_err_grade}}</div>
              </div>
            </div>
-           <div class="--1-1">
+           <div class="--1-2">
              <div class="form-item">
                <div class="form-item-label">Отрасли работы</div>
                <SelectTemplate
