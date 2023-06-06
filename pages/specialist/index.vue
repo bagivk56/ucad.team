@@ -178,13 +178,21 @@
            </div>
          </div>
        </div>
-
        <div class="specialist-section">
          <div class="specialist-section__title">Проект</div>
+         <Projects
+           :projects="form.projects"
+           @change="(projects) => {form.projects = projects}"
+         />
        </div>
        <div class="specialist-section">
          <div class="specialist-section__title">Образование</div>
+         <Education
+           :educations="form.educations"
+           @change="(educations) => {form.educations = educations}"
+         />
        </div>
+
        <div class="specialist-section">
          <div class="specialist-section__title">Условия работы</div>
        </div>
@@ -212,6 +220,9 @@ import {
   maxLength
 } from "vuelidate/lib/validators";
 import Select from "~/components/form/Select.vue";
+import Projects from "~/components/specialist/Projects.vue";
+import Education from "~/components/specialist/Education.vue";
+
 import categories from "@/constacts/specialist/categories";
 import specialization from "@/constacts/specialist/specialization";
 import key_skill from "@/constacts/specialist/key_skill";
@@ -249,6 +260,14 @@ export default {
         work_industry: undefined,
         description: "",
 
+        //
+        projects: [
+          {}
+        ],
+        educations: [
+          {}
+        ],
+
         country: "Россия",
       },
     }
@@ -277,7 +296,10 @@ export default {
   },
 
   components: {
-    SelectTemplate: Select
+    SelectTemplate:
+    Select,
+    Projects,
+    Education
   },
 
   mounted() {
