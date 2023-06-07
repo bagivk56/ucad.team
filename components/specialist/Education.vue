@@ -1,7 +1,7 @@
 <template>
   <div class="education">
     <div class="education__list">
-      <div v-for="(education) in educations">
+      <div v-for="(education, index) in educations">
         <div class="education-card">
           <div class="--1-1">
             <div class="form-item">
@@ -10,6 +10,7 @@
                 v-model="education.level"
                 :options="['Высшее','Среднее','Дополнительное']"
               />
+              <div v-if="_errorFiled(index, 'level')" class="form-item-error">{{_errorFiled(index, 'level')}}</div>
             </div>
           </div>
           <div class="--1-1">
@@ -20,6 +21,7 @@
                 class="form-item-input"
                 placeholder=""
               />
+              <div v-if="_errorFiled(index, 'educationOrganization')" class="form-item-error">{{_errorFiled(index, 'educationOrganization')}}</div>
             </div>
           </div>
           <div class="--1-1">
@@ -30,6 +32,7 @@
                 class="form-item-input"
                 placeholder=""
               />
+              <div v-if="_errorFiled(index, 'qualification')" class="form-item-error">{{_errorFiled(index, 'qualification')}}</div>
             </div>
           </div>
           <div class="--1-1">
@@ -41,7 +44,12 @@
                 format="YYYY"
                 value-type="YYYY"
               />
+              <div v-if="_errorFiled(index, 'finishDate')" class="form-item-error">{{_errorFiled(index, 'finishDate')}}</div>
             </div>
+          </div>
+
+          <div class="education-card__remove" @click="() => removeProject(index)">
+            <img src="@/assets/svg/common/close.svg"/>
           </div>
         </div>
       </div>
@@ -75,6 +83,12 @@ export default {
       default: () => {
         return []
       }
+    },
+    errors: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   },
 
@@ -96,6 +110,23 @@ export default {
         educations.push({...education});
       }
       this.$emit("change", educations)
+    },
+
+    _errorFiled: function (index, name) {
+      const error = this.errors?.[index]?.[name] || {};
+      if (!error?.$invalid) {
+        return null
+      }
+
+      if (typeof error.required === "boolean" && !error.required) {
+        return "Обязательно к заполнению"
+      }
+      if (typeof error.maxLength === "boolean" && !error.maxLength) {
+        return `Макс. симов. ${error.$params?.maxLength?.max}`
+      }
+      if (typeof error.notValid === "boolean" && !error.notValid) {
+        return 'Невалидные данные'
+      }
     }
   }
 }
@@ -129,6 +160,7 @@ export default {
   border-radius: 25px;
   margin-top: -10px;
   margin-left: -10px;
+  position: relative;
 
   & > * {
     width: calc(100% - 10px);
@@ -139,5 +171,15 @@ export default {
       width: calc(100% / 2 - 10px);
     }
   }
+}
+.education-card__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 </style>

@@ -15,6 +15,7 @@
                   placeholder="Введите название проекта"
                   @inpu="(event) => changeProject(index, 'title', event)"
                 />
+                <div v-if="_errorFiled(index, 'title')" class="form-item-error">{{_errorFiled(index, 'title')}}</div>
               </div>
             </div>
             <div class="--1-1">
@@ -24,8 +25,8 @@
                   v-model="project.role"
                   class="form-item-input"
                   placeholder="Введите роль в проекте"
-                  @inpu="(event) => changeProject(index, 'role', event)"
                 />
+                <div v-if="_errorFiled(index, 'role')" class="form-item-error">{{_errorFiled(index, 'role')}}</div>
               </div>
             </div>
             <div class="--1-1">
@@ -37,6 +38,7 @@
                   placeholder="Опишите, что специалист делал на проекте"
                   @inpu="(event) => changeProject(index, 'description', event)"
                 />
+                <div v-if="_errorFiled(index, 'description')" class="form-item-error">{{_errorFiled(index, 'description')}}</div>
               </div>
             </div>
             <div class="--1-2">
@@ -48,6 +50,7 @@
                   format="MM.YYYY"
                   value-type="YYYY-MM"
                 />
+                <div v-if="_errorFiled(index, 'start')" class="form-item-error">{{_errorFiled(index, 'start')}}</div>
               </div>
             </div>
             <div class="--1-2">
@@ -60,6 +63,7 @@
                   value-type="YYYY-MM"
                   :disabled-inp="project.finishCurrent"
                 />
+                <div v-if="_errorFiled(index, 'finish')" class="form-item-error">{{_errorFiled(index, 'finish')}}</div>
               </div>
             </div>
             <div class="--1-1">
@@ -109,6 +113,12 @@ export default {
       default: () => {
         return []
       }
+    },
+    errors: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   },
 
@@ -129,6 +139,23 @@ export default {
         projects.push({...newProkect});
       }
       this.$emit("change", projects)
+    },
+
+    _errorFiled: function (index, name) {
+      const error = this.errors?.[index]?.[name] || {};
+      if (!error?.$invalid) {
+        return null
+      }
+
+      if (typeof error.required === "boolean" && !error.required) {
+        return "Обязательно к заполнению"
+      }
+      if (typeof error.maxLength === "boolean" && !error.maxLength) {
+        return `Макс. симов. ${error.$params?.maxLength?.max}`
+      }
+      if (typeof error.notValid === "boolean" && !error.notValid) {
+        return 'Невалидные данные'
+      }
     }
   }
 }

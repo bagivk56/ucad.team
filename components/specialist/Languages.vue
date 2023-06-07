@@ -14,6 +14,7 @@
                 track-by="title"
                 label="title"
               />
+              <div v-if="_errorFiled(index, 'title')" class="form-item-error">{{_errorFiled(index, 'title')}}</div>
             </div>
             <div class="--1-2">
               <SelectTemplate
@@ -23,6 +24,7 @@
                 track-by="title"
                 label="title"
               />
+              <div v-if="_errorFiled(index, 'level')" class="form-item-error">{{_errorFiled(index, 'level')}}</div>
             </div>
             <div class="project-card__remove" @click="() => removeProject(index)">
               <img src="@/assets/svg/common/close.svg"/>
@@ -67,6 +69,12 @@ export default {
       default: () => {
         return []
       }
+    },
+    errors: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   },
 
@@ -80,6 +88,23 @@ export default {
       let languages = [...this.languages];
       languages.splice(index, 1);
       this.$emit("change", languages)
+    },
+
+    _errorFiled: function (index, name) {
+      const error = this.errors?.[index]?.[name] || {};
+      if (!error?.$invalid) {
+        return null
+      }
+
+      if (typeof error.required === "boolean" && !error.required) {
+        return "Обязательно к заполнению"
+      }
+      if (typeof error.maxLength === "boolean" && !error.maxLength) {
+        return `Макс. симов. ${error.$params?.maxLength?.max}`
+      }
+      if (typeof error.notValid === "boolean" && !error.notValid) {
+        return 'Невалидные данные'
+      }
     }
   }
 }
