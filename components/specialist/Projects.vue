@@ -44,6 +44,9 @@
                 <div class="form-item-label">Начало работы</div>
                 <DateTimePicker
                   v-model="project.start"
+                  :disabled-date="(date) => date > new Date()"
+                  format="MM.YYYY"
+                  value-type="YYYY-MM"
                 />
               </div>
             </div>
@@ -52,8 +55,21 @@
                 <div class="form-item-label">Окончание</div>
                 <DateTimePicker
                   v-model="project.finish"
+                  :disabled-date="(date) => date > new Date()"
+                  format="MM.YYYY"
+                  value-type="YYYY-MM"
+                  :disabled-inp="project.finishCurrent"
                 />
               </div>
+            </div>
+            <div class="--1-1">
+              <label class="switch-label">
+                <div class="switch" :class="{'active': Boolean(project.finishCurrent)}">
+                  <input v-model="project.finishCurrent" type="checkbox" :checked="Boolean(project.finishCurrent)" hidden style="user-select: none"/>
+                  <span/>
+                </div>
+                По настоящее время
+              </label>
             </div>
 
             <div class="project-card__remove" @click="() => removeProject(index)">
@@ -83,6 +99,7 @@ const newProkect = {
   description: "",
   start: "",
   finish: "",
+  finishCurrent: false,
 }
 
 export default {

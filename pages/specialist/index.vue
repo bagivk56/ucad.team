@@ -82,6 +82,19 @@
            </div>
            <div class="--1-2">
              <div class="form-item">
+               <div class="form-item-label">Страна</div>
+               <SelectTemplate
+                 v-model="form.country"
+                 :options="countries"
+
+                 track-by="title"
+                 label="title"
+               />
+               <div v-if="_err_country" class="form-item-error">{{_err_country}}</div>
+             </div>
+           </div>
+           <div class="--1-2">
+             <div class="form-item">
                <div class="form-item-label">Пол</div>
                <div class="form-tags">
                  <div :class="{'active': Boolean(form.gender === 'Мужской')}" @click="() => {form.gender = 'Мужской'}">Мужской</div>
@@ -138,6 +151,9 @@
                />
                <div v-if="_err_key_skill" class="form-item-error">{{_err_key_skill}}</div>
              </div>
+             <div class="section-help-message">
+               Это ключевая информация, на которую обращают внимание клиенты при выборе специалиста
+             </div>
            </div>
            <div class="--1-2">
              <div class="form-item">
@@ -175,8 +191,18 @@
                />
                <div v-if="_err_description" class="form-item-error">{{_err_description}}</div>
              </div>
+             <div class="section-help-message">
+               Краткое резюме опыта специалиста, которое должно раскрывать его основные hard и soft-skills. Играет роль сопроводительного письма к резюме, т.е. текст должен быть максимально вкусным.
+             </div>
            </div>
          </div>
+       </div>
+       <div class="specialist-section">
+         <div class="specialist-section__title">Языки</div>
+         <Languages
+           :languages="form.languages"
+           @change="(languages) => {form.languages = languages}"
+         />
        </div>
        <div class="specialist-section">
          <div class="specialist-section__title">Проект</div>
@@ -192,7 +218,6 @@
            @change="(educations) => {form.educations = educations}"
          />
        </div>
-
        <div class="specialist-section">
          <div class="specialist-section__title">Условия работы</div>
          <div class="form-contacts">
@@ -203,7 +228,7 @@
                <input
                  v-model="form.hour_price"
                  type="text"
-                 placeholder="Введите фамилию"
+                 placeholder=""
                  class="form-item-input"
                />
                <div v-if="_err_hour_price" class="form-item-error">{{_err_hour_price}}</div>
@@ -215,7 +240,7 @@
                <input
                  v-model="form.surname"
                  type="text"
-                 placeholder="Введите фамилию"
+                 placeholder=""
                  class="form-item-input"
                />
                <div v-if="_err_surname" class="form-item-error">{{_err_surname}}</div>
@@ -290,6 +315,7 @@ import {
 import Select from "~/components/form/Select.vue";
 import Projects from "~/components/specialist/Projects.vue";
 import Education from "~/components/specialist/Education.vue";
+import Languages from "~/components/specialist/Languages.vue";
 
 import categories from "@/constacts/specialist/categories";
 import specialization from "@/constacts/specialist/specialization";
@@ -297,6 +323,9 @@ import key_skill from "@/constacts/specialist/key_skill";
 import cities from "@/constacts/specialist/cities";
 import grayds from "@/constacts/specialist/grayds";
 import work_industry from "@/constacts/specialist/work_industry";
+import countries from "@/constacts/specialist/countries";
+import list_language from "@/constacts/specialist/list_language";
+import list_language_level from "@/constacts/specialist/list_language_level";
 
 export default {
   data: function () {
@@ -307,6 +336,7 @@ export default {
       cities,
       grayds,
       work_industry,
+      countries,
 
       form: {
 
@@ -319,6 +349,7 @@ export default {
         email: "",
         gender: "Мужской",
         city: "",
+        country: "",
 
         //
         category: undefined,
@@ -335,6 +366,7 @@ export default {
         educations: [
           {}
         ],
+        languages: [],
 
         hour_price: "",
         work_formats: {
@@ -347,8 +379,6 @@ export default {
           inCountry: false,
           outCountry: false,
         },
-
-        country: "Россия",
       },
     }
   },
@@ -379,18 +409,26 @@ export default {
     SelectTemplate:
     Select,
     Projects,
-    Education
+    Education,
+    Languages
   },
 
   mounted() {
-    const getTreeCategogories = function (children) {
-      return {
-        id: children.id,
-        title: children.title
-      }
-    }
-    const newList = cities.map((child) => getTreeCategogories(child));
-    console.log('newList: ', JSON.stringify(newList));
+    // const getTreeCategogories = function (children) {
+    //   return {
+    //     id: children.id,
+    //     title: children.title
+    //   }
+    // }
+    // const newList = cities.map((child) => getTreeCategogories(child));
+    // console.log('newList: ', JSON.stringify(newList));
+
+
+    const list = [];
+    Object.keys(list_language_level).map((t) => {
+      list.push(list_language_level[t]);
+    })
+    console.log('JS', JSON.stringify(list))
   },
 
   methods: {
@@ -470,5 +508,17 @@ export default {
       width: calc(100% / 5 - 20px);
     }
   }
+}
+
+.section-help-message {
+  padding: 15px 20px;
+  background: linear-gradient(270.28deg, rgba(203, 67, 181, 0.09) 0.24%, rgba(255, 255, 255, 0) 85.18%);
+  border-radius: 15px;
+  margin-top: 10px;
+
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  border: 1.5px solid #087AFF;
 }
 </style>

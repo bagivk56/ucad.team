@@ -3,9 +3,11 @@
     <date-picker
       v-model="value"
       :lang="localDate"
-      format="DD.MM.YYYY"
+      :format="format"
+      :value-type="valueType"
+      :disabled="disabledInp"
+      :disabled-date="disabledDate"
       type="date"
-      value-type="YYYY-MM-DD"
       input-class="form-item-input"
       placeholder="Выберите дату"
 
@@ -40,6 +42,21 @@ export default {
 
   props: {
     value: {
+      default: null
+    },
+    format: {
+      type: String,
+      default: "DD.MM.YYYY"
+    },
+    valueType: {
+      type: String,
+      default: "YYYY-MM-DD"
+    },
+    disabledInp: {
+      type: Boolean,
+      default: false
+    },
+    disabledDate: {
       default: null
     }
   },

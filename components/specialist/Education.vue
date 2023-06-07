@@ -1,15 +1,13 @@
 <template>
   <div class="education">
     <div class="education__list">
-      <template
-        v-for="(education) in educations"
-      >
+      <div v-for="(education) in educations">
         <div class="education-card">
           <div class="--1-1">
             <div class="form-item">
               <div class="form-item-label">Уровень</div>
               <SelectTemplate
-                :value="education.level"
+                v-model="education.level"
                 :options="['Высшее','Среднее','Дополнительное']"
               />
             </div>
@@ -18,7 +16,7 @@
             <div class="form-item">
               <div class="form-item-label">Учебное заведение</div>
               <input
-                :value="education.educationOrganization"
+                v-model="education.educationOrganization"
                 class="form-item-input"
                 placeholder=""
               />
@@ -28,7 +26,7 @@
             <div class="form-item">
               <div class="form-item-label">Специальность</div>
               <input
-                :value="education.qualification"
+                v-model="education.qualification"
                 class="form-item-input"
                 placeholder=""
               />
@@ -37,20 +35,21 @@
           <div class="--1-1">
             <div class="form-item">
               <div class="form-item-label">Завершение учебы</div>
-              <input
-                :value="education.finishDate"
-                class="form-item-input"
-                placeholder=""
+              <DateTimePicker
+                v-model="education.finishDate"
+                :disabled-date="(date) => date > new Date()"
+                format="YYYY"
+                value-type="YYYY"
               />
             </div>
           </div>
         </div>
-      </template>
+      </div>
     </div>
     <div class="education__new">
       <button
         class="btn btn-primary"
-        @click="addEducation"
+        @click="addProject"
       >
         Добавить
       </button>
@@ -60,6 +59,7 @@
 
 <script>
 import Select from "~/components/form/Select.vue";
+import DateTimePicker from "@/components/form/DateTimePicker.vue";
 
 const education = {
   level: "",
@@ -79,12 +79,23 @@ export default {
   },
 
   components: {
+    DateTimePicker,
     SelectTemplate: () => import("~/components/form/Select.vue")
   },
 
   methods: {
-    addEducation: function () {
-
+    addProject: function () {
+      let educations = [...this.educations];
+      educations.push({...education});
+      this.$emit("change", educations)
+    },
+    removeProject: function (index) {
+      let educations = [...this.educations];
+      educations.splice(index, 1);
+      if (educations.length <= 0) {
+        educations.push({...education});
+      }
+      this.$emit("change", educations)
     }
   }
 }
