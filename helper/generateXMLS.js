@@ -13,7 +13,7 @@ export default function (form) {
     specialization: form.specialization?.title,
     grade: form.grade?.title,
     phone: Boolean(form.phone) ? `+${(form.phone || '').replace(/\D+/g, "")}` : null,
-    email: form.grade?.email || null,
+    email: form?.email || null,
 
 
     birth_date: null,
