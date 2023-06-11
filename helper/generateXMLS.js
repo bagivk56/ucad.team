@@ -27,8 +27,8 @@ export default function (form) {
       extraData: null
     },
     reservations: {
-      start_period: null,
-      end_period: null,
+      start_period: '2022-01-01',
+      end_period: '2022-01-02',
     },
     team_only_reserve: null,
   };
